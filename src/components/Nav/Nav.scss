@@ -1,6 +1,6 @@
 @import '../../styles/variables.scss';
 
-nav {
+nav#nav-yj {
   @include flex-align-center;
   justify-content: space-around;
   position: fixed;
