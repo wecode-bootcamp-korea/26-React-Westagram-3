@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './Main.scss';
-import '../../../components/Nav/Nav';
+// import '../../../components/Nav/Nav';
 
 class MainKang extends Component {
   goLogin = () => {
+    // eslint-disable-next-line react/destructuring-assignment
     this.props.history.push('/Login-jw');
   };
   render() {
@@ -11,16 +12,14 @@ class MainKang extends Component {
       <div className="body">
         <div className="total">
           <nav className="nav-bar nav-bar-jw">
-            <div className="nav-bar__left">
+            <div className="nav-bar__left" onClick={this.goLogin}>
               <img
                 alt="인스타로고"
                 className="feed-image insta-logo"
                 src="/images/jwKang/instagram.png"
               />
               <div className="thinLine" />
-              <h2 className="westagram" onClick={this.goLogin}>
-                Westagram
-              </h2>
+              <h2 className="westagram">Westagram</h2>
             </div>
 
             <div className="nav-bar__mid">
@@ -218,7 +217,7 @@ class MainKang extends Component {
                   <div className="recommend-main__pic recommend-main__pic3" />
                   <div className="recommend-main__user3">
                     <p>domang_chyeo</p>
-                    <p>gaurd님 외 7명이...</p>
+                    <p>guard님 외 7명이...</p>
                   </div>
                   <button className="follow-btn">팔로우</button>
                 </div>

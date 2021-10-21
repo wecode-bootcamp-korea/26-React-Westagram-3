@@ -3,6 +3,7 @@ import './Login.scss';
 
 class LoginKang extends Component {
   goMain = () => {
+    // eslint-disable-next-line react/destructuring-assignment
     this.props.history.push('/Main-jw');
   };
 
