@@ -2,6 +2,17 @@ import React, { Component } from 'react';
 import './Login.scss';
 
 class LoginLim extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { counter: 0 };
+  }
+
+  handleIdInput = e => {
+    // eslint-disable-next-line no-unused-expressions
+    e.target.value;
+  };
+
   render() {
     return (
       <main id="login-page-ysLim">
@@ -15,12 +26,14 @@ class LoginLim extends Component {
               className="info-input"
               name="username"
               type="text"
+              onChange={this.handleIdInput}
               placeholder="전화번호, 사용자명, 혹은 이메일"
             />
             <input
               id="password"
               name="password"
               type="password"
+              onChange={this.handleIdInput}
               placeholder="비밀번호"
             />
             <input
