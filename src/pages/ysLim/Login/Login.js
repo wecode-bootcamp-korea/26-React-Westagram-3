@@ -5,12 +5,30 @@ class LoginLim extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { counter: 0 };
+    // eslint-disable-next-line react/no-unused-state
+    this.state = {
+      userID: '',
+      userPassword: '',
+      activateBttn: false,
+    };
   }
 
   handleIdInput = e => {
-    // eslint-disable-next-line no-unused-expressions
-    e.target.value;
+    e.preventDefault();
+    this.setState({ userID: e.target.value });
+    this.validatingIdPw();
+  };
+
+  handlePasswordInput = e => {
+    e.preventDefault();
+    this.setState({ userPassword: e.target.value });
+    this.validatingIdPw();
+  };
+
+  validatingIdPw = () => {
+    this.state.userID.includes('@') && this.state.userPassword.length > 5
+      ? this.setState({ activateBttn: true })
+      : this.setState({ activateBttn: false });
   };
 
   render() {
@@ -33,12 +51,13 @@ class LoginLim extends Component {
               id="password"
               name="password"
               type="password"
-              onChange={this.handleIdInput}
+              onChange={this.handlePasswordInput}
               placeholder="비밀번호"
             />
             <input
               id="submit"
               className="login-button"
+              style={{ opacity: this.state.activateBttn ? 1 : 0.2 }}
               type="submit"
               value="로그인"
               disabled

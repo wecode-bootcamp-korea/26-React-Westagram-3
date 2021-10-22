@@ -48,17 +48,8 @@ main#login-page-ysLim {
 
     .login-button {
       color: white;
-      opacity: 0.2;
+      opacity: 1;
       background: blue;
-
-      transition-duration: 400ms;
-    }
-  }
-  .login-activate {
-    cursor: pointer;
-    opacity: 1;
-    &:hover {
-      background-color: darkblue;
     }
   }
 }
