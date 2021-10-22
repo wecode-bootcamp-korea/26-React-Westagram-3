@@ -9,6 +9,123 @@ main#main-page-ysLim {
     padding-right: 18px;
     margin-top: 100px;
   }
+  .profile-username {
+    @include flex-align-center();
+  }
+
+  .profile {
+    margin-right: 5px;
+    border-radius: 50%;
+    width: 40px;
+  }
+
+  .username {
+    font-weight: 700;
+  }
+
+  /* post css */
+  .post {
+    line-height: 1.45em;
+    background-color: white;
+    border: 1px lightgray solid;
+
+    .post-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px 16px 20px;
+    }
+
+    .post-pic-frame {
+      width: 480px;
+      height: 480px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        margin-top: -100px;
+      }
+    }
+
+    .post-icons {
+      padding: 16px 20px 16px 20px;
+
+      i {
+        font-size: 22px;
+        margin-right: 10px;
+      }
+      i.fa-bookmark {
+        float: right;
+        margin-right: 0px;
+      }
+
+      .profile-username {
+        margin-top: 6px;
+
+        .profile {
+          width: 22px;
+        }
+      }
+    }
+
+    .post-description {
+      padding: 0px 20px 0px 20px;
+    }
+    .heart-icon {
+      float: right;
+    }
+
+    .post-comments {
+      padding: 0px 20px 0px 20px;
+
+      .comment-icons {
+        float: right;
+
+        .delete-comment {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .post-date {
+      padding: 0px 20px 16px 20px;
+      color: gray;
+    }
+
+    .post-writing-comments {
+      padding: 20px 20px 20px 20px;
+      border-top: 1px lightgray solid;
+
+      input.write-comment {
+        border-width: 0;
+        width: 400px;
+      }
+
+      .write-comment:focus {
+        outline: none !important;
+        border: none;
+      }
+
+      .submit-comment {
+        float: right;
+        color: gray;
+        background-color: rgba(0, 0, 0, 0);
+        border-width: 0;
+      }
+
+      .activate-comment-submit {
+        color: blue;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .post2 {
+    margin-top: 20px;
+  }
+  .fa-heart {
+    cursor: pointer;
+  }
 
   aside {
     height: 70vh;
@@ -17,254 +134,135 @@ main#main-page-ysLim {
     top: 120px;
     left: 50%;
     margin-left: 100px;
-  }
-}
 
-/* PROFILE!! Default!*/
-.profile-username {
-  @include flex-align-center();
-}
-
-.profile {
-  margin-right: 5px;
-  border-radius: 50%;
-  width: 40px;
-}
-
-.username {
-  font-weight: 700;
-}
-
-/* PROFILE!! END */
-
-/* post css */
-.post {
-  line-height: 1.45em;
-  background-color: white;
-  border: 1px lightgray solid;
-
-  .post-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 24px 16px 20px;
-  }
-
-  .post-pic-frame {
-    width: 480px;
-    height: 480px;
-    overflow: hidden;
-
-    img {
+    section {
+      overflow: hidden;
       width: 100%;
-      margin-top: -100px;
-    }
-  }
-
-  .post-icons {
-    padding: 16px 20px 16px 20px;
-
-    i {
-      font-size: 22px;
-      margin-right: 10px;
-    }
-    i.fa-bookmark {
-      float: right;
-      margin-right: 0px;
     }
 
-    .profile-username {
-      margin-top: 6px;
+    section.my-profile {
+      @include flex-align-center();
 
       .profile {
-        width: 22px;
+        width: 60px;
       }
     }
+
+    section.story,
+    section.recommend {
+      margin-top: 10px;
+      height: 194px;
+      background-color: white;
+      font-size: 1em;
+      border: 1px lightgray solid;
+      border-radius: 1px;
+
+      .recommend-bar,
+      .story-bar {
+        padding: 12px 14px 6px 14px;
+      }
+
+      .more-post,
+      .section-name {
+        color: gray;
+      }
+
+      .see-all {
+        font-weight: 700;
+        float: right;
+      }
+
+      .story-list,
+      .recommend-list {
+        height: 150px;
+        margin: 0;
+        padding: 0 16px 0px 16px;
+        list-style-type: none;
+      }
+
+      .story-list {
+        overflow: scroll;
+
+        li {
+          @include flex-align-center();
+
+          position: relative;
+          margin: 10px 0;
+
+          .profile {
+            width: 32px;
+            height: 32px;
+            margin: 4px;
+          }
+
+          .my-username {
+            margin-left: 4px;
+
+            .userID {
+              font-weight: 800;
+            }
+          }
+
+          .story-img-activate {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            border: 2px red solid;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+          }
+        }
+      }
+
+      .story-list li:nth-child(1),
+      .story-list li:nth-last-child(1),
+      .recommend-list li:nth-child(1),
+      .recommend-list li:nth-last-child(1) {
+        margin: 0;
+      }
+    }
+
+    section.recommend {
+      .recommend-list {
+        overflow: hidden;
+      }
+      li {
+        @include flexCenter();
+        justify-content: space-between;
+        margin: 10px 0;
+
+        .profile-userID-username {
+          @include flexCenter();
+
+          .profile {
+            width: 40px;
+            height: 40px;
+          }
+        }
+        .follow-bttn {
+          float: right;
+          color: blue;
+        }
+      }
+    }
+
+    section.info {
+      margin-top: 10px;
+      height: 180px;
+    }
   }
 
-  .post-description {
-    padding: 0px 20px 0px 20px;
+  .changeToRed {
+    filter: invert(45%) sepia(100%) saturate(1776%) hue-rotate(-45deg)
+      brightness(101%) contrast(96%);
   }
-
-  .post-comments {
-    padding: 0px 20px 0px 20px;
-
-    .delete-comment {
-      cursor: pointer;
-    }
-
-    .heart-icon {
-      float: right;
-    }
+  .hideThis {
+    display: none;
   }
-
-  .post-date {
-    padding: 0px 20px 16px 20px;
-    color: gray;
-  }
-
-  .post-writing-comments {
-    padding: 20px 20px 20px 20px;
-    border-top: 1px lightgray solid;
-
-    input.write-comment {
-      border-width: 0;
-      width: 400px;
-    }
-
-    .write-comment:focus {
-      outline: none !important;
-      border: none;
-    }
-
-    .submit-comment {
-      float: right;
-      color: gray;
-      background-color: rgba(0, 0, 0, 0);
-      border-width: 0;
-    }
-
-    .activate-comment-submit {
-      color: blue;
-      cursor: pointer;
-    }
-  }
-}
-
-.post2 {
-  margin-top: 20px;
-}
-.fa-heart {
-  cursor: pointer;
 }
 
 /* aside part start*/
-aside {
-  section {
-    overflow: hidden;
-    width: 100%;
-  }
-
-  section.my-profile {
-    @include flex-align-center();
-
-    .profile {
-      width: 60px;
-    }
-  }
-
-  section.story,
-  section.recommend {
-    margin-top: 10px;
-    height: 194px;
-    background-color: white;
-    font-size: 1em;
-    border: 1px lightgray solid;
-    border-radius: 1px;
-
-    .recommend-bar,
-    .story-bar {
-      padding: 12px 14px 6px 14px;
-    }
-
-    .more-post,
-    .section-name {
-      color: gray;
-    }
-
-    .see-all {
-      font-weight: 700;
-      float: right;
-    }
-
-    .story-list,
-    .recommend-list {
-      height: 150px;
-      margin: 0;
-      padding: 0 16px 0px 16px;
-      list-style-type: none;
-    }
-
-    .story-list {
-      overflow: scroll;
-
-      li {
-        @include flex-align-center();
-
-        position: relative;
-        margin: 10px 0;
-
-        .profile {
-          width: 32px;
-          height: 32px;
-          margin: 4px;
-        }
-
-        .my-username {
-          margin-left: 4px;
-
-          .userID {
-            font-weight: 800;
-          }
-        }
-
-        .story-img-activate {
-          position: absolute;
-          left: 0px;
-          top: 0px;
-          border: 2px red solid;
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-        }
-      }
-    }
-
-    .story-list li:nth-child(1),
-    .story-list li:nth-last-child(1),
-    .recommend-list li:nth-child(1),
-    .recommend-list li:nth-last-child(1) {
-      margin: 0;
-    }
-  }
-
-  section.recommend {
-    .recommend-list {
-      overflow: hidden;
-    }
-    li {
-      @include flexCenter();
-      justify-content: space-between;
-      margin: 10px 0;
-
-      .profile-userID-username {
-        @include flexCenter();
-
-        .profile {
-          width: 40px;
-          height: 40px;
-        }
-      }
-      .follow-bttn {
-        float: right;
-        color: blue;
-      }
-    }
-  }
-
-  section.info {
-    margin-top: 10px;
-    height: 180px;
-  }
-}
-
-.changeToRed {
-  filter: invert(45%) sepia(100%) saturate(1776%) hue-rotate(-45deg)
-    brightness(101%) contrast(96%);
-}
-.hideThis {
-  display: none;
-}
 
 @media only screen and (max-width: 820px) {
   main#main-page {

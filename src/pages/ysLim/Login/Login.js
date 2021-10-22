@@ -4,8 +4,6 @@ import './Login.scss';
 class LoginLim extends Component {
   constructor(props) {
     super(props);
-
-    // eslint-disable-next-line react/no-unused-state
     this.state = {
       userID: '',
       userPassword: '',
