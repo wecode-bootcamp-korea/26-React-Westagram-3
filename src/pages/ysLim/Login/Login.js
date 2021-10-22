@@ -9,29 +9,21 @@ class LoginLim extends Component {
     this.state = {
       userID: '',
       userPassword: '',
-      activateBttn: false,
     };
   }
 
   handleIdInput = e => {
-    e.preventDefault();
     this.setState({ userID: e.target.value });
-    this.validatingIdPw();
   };
 
   handlePasswordInput = e => {
-    e.preventDefault();
     this.setState({ userPassword: e.target.value });
-    this.validatingIdPw();
-  };
-
-  validatingIdPw = () => {
-    this.state.userID.includes('@') && this.state.userPassword.length > 5
-      ? this.setState({ activateBttn: true })
-      : this.setState({ activateBttn: false });
   };
 
   render() {
+    let userID = this.state.userID.includes('@');
+    let userPW = this.state.userPassword.length > 4;
+
     return (
       <main id="login-page-ysLim">
         <section className="main-container">
@@ -57,7 +49,9 @@ class LoginLim extends Component {
             <input
               id="submit"
               className="login-button"
-              style={{ opacity: this.state.activateBttn ? 1 : 0.2 }}
+              style={{
+                backgroundColor: userID && userPW ? 'green' : 'red',
+              }}
               type="submit"
               value="로그인"
               disabled
