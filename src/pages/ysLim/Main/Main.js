@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import PostComment from './PostComment/PostComment';
+import PostComment from './Comment/PostComment';
+import AddComment from './Comment/AddComment';
 import './Main.scss';
 
 class MainLim extends Component {
@@ -7,18 +8,16 @@ class MainLim extends Component {
     super(props);
     this.state = {
       userComment: [],
-      comment: '',
     };
   }
-  onSubmit = e => {
-    e.preventDefault();
-    this.state.userComment.push(this.state.comment);
-    console.log(this.state.userComment);
-    this.setState({ comment: '' });
+  addComment = comment => {
+    const newComment = {
+      id: Math.floor(Math.random() * 2000),
+      comment: comment,
+    };
+    this.setState({ userComment: [...this.state.userComment, newComment] });
   };
-  onChange = e => {
-    this.setState({ comment: e.target.value });
-  };
+
   render() {
     return (
       <main id="main-page-ysLim">
@@ -74,28 +73,12 @@ class MainLim extends Component {
                 <i className="heart-icon">
                   <i className="fas fa-heart" />
                 </i>
-                <PostComment comment={this.state.userComment} />
+                <PostComment comments={this.state.userComment} />
               </div>
             </div>
 
             <div className="post-date">21분 전</div>
-            <form onSubmit={this.onSubmit} className="post-writing-comments">
-              <input
-                id="write-comment-text"
-                name="write-comment"
-                className="write-comment"
-                type="text"
-                placeholder="댓글 달기..."
-                value={this.state.comment}
-                onChange={this.onChange}
-              />
-              <input
-                id="write-comment-submit"
-                className="submit-comment"
-                type="submit"
-                value="게시"
-              />
-            </form>
+            <AddComment addComment={this.addComment} />
           </div>
         </article>
         <aside>
