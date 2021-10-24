@@ -50,7 +50,7 @@ class LoginKang extends Component {
             <button
               className={
                 this.state.idInputVal.indexOf('@') !== -1 &&
-                this.state.pwInputVal > 5
+                this.state.pwInputVal.length > 5
                   ? 'loginBtn2'
                   : 'loginBtn'
               }
