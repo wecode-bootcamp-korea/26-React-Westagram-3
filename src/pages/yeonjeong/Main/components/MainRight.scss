@@ -1,0 +1,88 @@
+@import '../../../../styles/variables.scss';
+
+.main_right {
+  width: 300px;
+  margin-left: 30px;
+
+  .story,
+  .recommend {
+    margin-top: 15px;
+    padding: 12px;
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 3px;
+    background-color: white;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+
+      li {
+        margin-top: 8px;
+      }
+    }
+
+    .storyTitle,
+    .recommendTitle {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+      font-size: 14px;
+
+      h4 {
+        color: rgb(144, 144, 144);
+      }
+
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .story .userInfo img {
+    padding: 2px;
+    border: 2px solid rgb(200, 61, 126);
+    border-radius: 50%;
+  }
+
+  .recommend {
+    .userInfo {
+      position: relative;
+
+      img {
+        border: 2px solid lightgrey;
+        border-radius: 50%;
+      }
+    }
+
+    button {
+      position: absolute;
+      right: 0;
+      border: none;
+      color: rgb(68, 148, 239);
+      background-color: white;
+      font-weight: bold;
+    }
+  }
+
+  .westaInfo {
+    display: flex;
+    flex-direction: column;
+
+    ul {
+      margin-top: 15px;
+
+      li {
+        float: left;
+        margin: 0 1px;
+        color: lightgrey;
+        font-size: 12px;
+      }
+    }
+
+    .copyright {
+      margin-top: 10px;
+      color: lightgrey;
+      font-size: 14px;
+    }
+  }
+}

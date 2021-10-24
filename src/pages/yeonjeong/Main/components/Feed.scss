@@ -1,0 +1,101 @@
+@import '../../../../styles/variables.scss';
+
+.feed {
+  article {
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 3px;
+    background-color: white;
+
+    .feedHeader {
+      @include flex-align-center;
+      position: relative;
+      padding: 10px;
+      border-bottom: 1px solid rgb(219, 219, 219);
+
+      i {
+        position: absolute;
+        right: 15px;
+      }
+    }
+
+    .feedImg {
+      width: 600px;
+    }
+
+    .feedIcon {
+      @include flex-align-center;
+      padding: 5px 0;
+
+      i {
+        padding-left: 15px;
+        font-size: 25px;
+      }
+
+      .fa-bookmark {
+        padding-left: 435px;
+      }
+    }
+
+    .feedBody {
+      display: flex;
+      flex-direction: column;
+      margin: 10px 15px;
+
+      .numberOfLikes {
+        @include flex-align-center;
+
+        img {
+          width: 20px;
+          height: 20px;
+          border: 1px solid lightgrey;
+          border-radius: 50%;
+        }
+
+        span {
+          padding-left: 8px;
+        }
+      }
+
+      .feedText {
+        margin-top: 10px;
+        line-height: 30px;
+
+        a {
+          text-decoration: none;
+        }
+      }
+
+      .feedUploadTime {
+        margin-top: 10px;
+        color: rgb(148, 148, 148);
+        font-size: 12px;
+      }
+
+      b {
+        font-weight: bold;
+      }
+    }
+
+    .feedCommentInput {
+      position: relative;
+      border-top: 1px solid rgb(219, 219, 219);
+
+      input {
+        width: 550px;
+        padding: 15px 10px;
+        border: none;
+        outline: none;
+      }
+
+      button {
+        position: absolute;
+        right: 0px;
+        width: 50px;
+        height: 100%;
+        color: rgb(198, 223, 250);
+        background-color: white;
+        border: none;
+      }
+    }
+  }
+}
