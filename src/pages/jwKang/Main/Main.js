@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Main.scss';
-// import '../../../components/Nav/Nav';
 
 class MainKang extends Component {
   goLogin = () => {

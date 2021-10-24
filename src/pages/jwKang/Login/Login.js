@@ -2,9 +2,27 @@ import React, { Component } from 'react';
 import './Login.scss';
 
 class LoginKang extends Component {
-  goMain = () => {
-    // eslint-disable-next-line react/destructuring-assignment
-    this.props.history.push('/Main-jw');
+  constructor() {
+    super();
+    this.state = {
+      idInputVal: '',
+      pwInputVal: '',
+      color: '#99d6ff',
+    };
+  }
+
+  handleIdInput = event => {
+    console.log(event.target.value);
+    this.setState({
+      idInputVal: event.target.value,
+    });
+  };
+
+  handlePwInput = event => {
+    console.log(event.target.value);
+    this.setState({
+      pwInputVal: event.target.value,
+    });
   };
 
   render() {
@@ -19,6 +37,7 @@ class LoginKang extends Component {
               id="idBox"
               type="text"
               placeholder="전화번호, 사용자 이름 또는 이메일"
+              onChange={this.handleIdInput}
             />
             <input
               required
@@ -26,8 +45,16 @@ class LoginKang extends Component {
               id="pwBox"
               type="password"
               placeholder="비밀번호"
+              onChange={this.handlePwInput}
             />
-            <button className="loginBtn" id="loginBtn" onClick={this.goMain}>
+            <button
+              className={
+                this.state.idInputVal.indexOf('@') !== -1 &&
+                this.state.pwInputVal > 5
+                  ? 'loginBtn2'
+                  : 'loginBtn'
+              }
+            >
               로그인
             </button>
           </form>
