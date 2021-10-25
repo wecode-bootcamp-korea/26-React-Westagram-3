@@ -1,0 +1,88 @@
+@import '/src/styles/variables.scss';
+
+.insta-main {
+  border-top: 1px solid rgba(54, 54, 54, 0.1);
+  border-left: 1px solid rgba(54, 54, 54, 0.1);
+  border-bottom: 1px solid rgba(54, 54, 54, 0.1);
+  border-right: 1px solid rgba(54, 54, 54, 0.1);
+  border-radius: 3px;
+  width: 441px;
+  margin-right: 30px;
+
+  .feed-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+
+    .feed-top__left {
+      display: flex;
+      align-items: center;
+    }
+
+    .feed-profile__picture {
+      background: blue;
+      width: 26px;
+      height: 26px;
+      margin-right: 10px;
+      border-radius: 50%;
+    }
+
+    .feed-top__menu {
+      width: 14px;
+      height: 14px;
+    }
+  }
+  .my-picture {
+    width: 440px;
+  }
+
+  .feed-mid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 12px;
+
+    .feed-mid__left {
+      width: 100px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .feed-third {
+    padding: 5px 12px;
+    display: flex;
+    align-items: center;
+
+    .scott {
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      margin-right: 5px;
+    }
+  }
+
+  .rippleBox {
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 12px;
+    font-size: 12px;
+    color: lightgray;
+    border-top: 1px solid rgba(99, 99, 99, 0.1);
+
+    .comment {
+      border: none;
+    }
+
+    .rippleBox p:nth-child(2) {
+      color: #4eb7fd;
+    }
+
+    .posting-btn {
+      color: #0095f6;
+      border: none;
+      background: none;
+    }
+  }
+}

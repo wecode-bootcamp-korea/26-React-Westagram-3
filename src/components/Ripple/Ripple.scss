@@ -1,0 +1,46 @@
+@import '../../styles/variables.scss';
+
+.feed-text {
+  padding: 5px 12px;
+  display: flex;
+  flex-direction: column;
+
+  .feed-text__top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+
+  .feed-text__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .user-id,
+  .user-id2 {
+    margin-right: 5px;
+  }
+
+  .repl-heart {
+    width: 11px;
+    height: 11px;
+  }
+
+  .feed-text-ripple {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .feed-first-ripple {
+    display: flex;
+  }
+
+  .area {
+    list-style: none;
+  }
+
+  .feed-text__bottom-time {
+    color: rgba(0, 0, 0, 0.3);
+  }
+}
