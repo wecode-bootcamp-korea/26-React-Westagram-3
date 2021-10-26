@@ -4,16 +4,16 @@ export class AddComment extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      comment: '',
+      content: '',
     };
   }
   onSubmit = e => {
     e.preventDefault();
-    this.props.addComment(this.state.comment);
-    this.setState({ comment: '' });
+    this.props.addComment(this.props.id, this.state.content);
+    this.setState({ content: '' });
   };
   onChange = e => {
-    this.setState({ comment: e.target.value });
+    this.setState({ content: e.target.value });
   };
   render() {
     return (
@@ -24,7 +24,7 @@ export class AddComment extends Component {
           className="write-comment"
           type="text"
           placeholder="댓글 달기..."
-          value={this.state.comment}
+          value={this.state.content}
           onChange={this.onChange}
         />
         <input

@@ -1,19 +1,44 @@
 import React, { Component } from 'react';
-import PostComment from './Comment/PostComment';
-import AddComment from './Comment/AddComment';
+import Feed from './Feed/Feed';
 import './Main.scss';
 
 class MainLim extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      feed: [],
       userComment: [],
     };
   }
-  addComment = comment => {
+
+  componentDidMount() {
+    fetch('http://localhost:3000/data/feedDataYsLim.json', {
+      method: 'GET', // GET method는 기본값이라서 생략이 가능합니다.
+    }) // 예시코드에서는 이해를 돕기 위해 명시적으로 기입해뒀습니다.
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          feed: data,
+        });
+      });
+    fetch('http://localhost:3000/data/commentDataYsLim.json', {
+      method: 'GET', // GET method는 기본값이라서 생략이 가능합니다.
+    }) // 예시코드에서는 이해를 돕기 위해 명시적으로 기입해뒀습니다.
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          userComment: data,
+        });
+      });
+  }
+
+  addComment = (feedId, content) => {
     const newComment = {
       id: Math.floor(Math.random() * 2000),
-      comment: comment,
+      feedId: feedId,
+      userName: 'mincraft_bangbang',
+      content: content,
+      isLiked: false,
     };
     this.setState({ userComment: [...this.state.userComment, newComment] });
   };
@@ -22,64 +47,14 @@ class MainLim extends Component {
     return (
       <main id="main-page-ysLim">
         <article>
-          <div className="post post1">
-            <div className="post-top">
-              <div className="profile-username">
-                <img
-                  id="profile"
-                  className="profile"
-                  src={
-                    process.env.PUBLIC_URL + '/images/ysLim/main/profile.png'
-                  }
-                  alt="tl's profile images"
-                />
-                <span className="username">aescript</span>
-              </div>
-              <i className="fas fa-ellipsis-h" />
-            </div>
-            <div className="post-pic-frame">
-              <img
-                src={process.env.PUBLIC_URL + '/images/ysLim/main/main-pic.jpg'}
-                alt="doggy with red scarf"
-              />
-            </div>
-            <div className="post-icons">
-              <i className="fas fa-heart heartActivate" />
-              <i className="far fa-comment" />
-              <i className="far fa-share-square" />
-              <i className="far fa-bookmark" />
-              <div id="profile-username" className="profile-username">
-                <img
-                  id="profile"
-                  className="profile"
-                  src={
-                    process.env.PUBLIC_URL + '/images/ysLim/main/profile2.png'
-                  }
-                  alt="eyeball doggy"
-                />
-                <span className="username">doggypuppy</span>
-                <span>님 외 2명이 좋아합니다.</span>
-              </div>
-            </div>
-
-            <div className="post-description">
-              <span className="username">aescript</span> 위워크에서 진행한
-              베이킹 클래스...<span className="more-post">더보기</span>
-            </div>
-            <div id="post-comments-box#1">
-              <div className="post-comments">
-                <span className="username">klassethomas</span>
-                <span className="comment-text"> 거봐 좋았잖아~~~~:)</span>
-                <i className="heart-icon">
-                  <i className="fas fa-heart" />
-                </i>
-                <PostComment comments={this.state.userComment} />
-              </div>
-            </div>
-
-            <div className="post-date">21분 전</div>
-            <AddComment addComment={this.addComment} />
-          </div>
+          {this.state.feed.map(vl => (
+            <Feed
+              key={vl.id}
+              id={vl.id}
+              comments={this.state.userComment}
+              addComment={this.addComment}
+            />
+          ))}
         </article>
         <aside>
           <section className="my-profile">

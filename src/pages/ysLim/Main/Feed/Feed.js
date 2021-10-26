@@ -1,0 +1,66 @@
+import React, { Component } from 'react';
+import CommentList from './Comment/CommentList';
+import AddComment from './Comment/AddComment';
+
+export class Feed extends Component {
+  render() {
+    return (
+      <div className="post post1">
+        <div className="post-top">
+          <div className="profile-username">
+            <img
+              id="profile"
+              className="profile"
+              src={process.env.PUBLIC_URL + '/images/ysLim/main/profile.png'}
+              alt="tl's profile images"
+            />
+            <span className="username">aescript</span>
+          </div>
+          <i className="fas fa-ellipsis-h" />
+        </div>
+        <div className="post-pic-frame">
+          <img
+            src={process.env.PUBLIC_URL + '/images/ysLim/main/main-pic.jpg'}
+            alt="doggy with red scarf"
+          />
+        </div>
+        <div className="post-icons">
+          <i className="fas fa-heart heartActivate" />
+          <i className="far fa-comment" />
+          <i className="far fa-share-square" />
+          <i className="far fa-bookmark" />
+          <div id="profile-username" className="profile-username">
+            <img
+              id="profile"
+              className="profile"
+              src={process.env.PUBLIC_URL + '/images/ysLim/main/profile2.png'}
+              alt="eyeball doggy"
+            />
+            <span className="username">doggypuppy</span>
+            <span>님 외 2명이 좋아합니다.</span>
+          </div>
+        </div>
+
+        <div className="post-description">
+          <span className="username">aescript</span> 위워크에서 진행한 베이킹
+          클래스...<span className="more-post">더보기</span>
+        </div>
+        <div id="post-comments-box#1">
+          <div className="post-comments">
+            <span className="username">klassethomas</span>
+            <span className="comment-text"> 거봐 좋았잖아~~~~:)</span>
+            <i className="heart-icon">
+              <i className="fas fa-heart" />
+            </i>
+            <CommentList id={this.props.id} comments={this.props.comments} />
+          </div>
+        </div>
+
+        <div className="post-date">21분 전</div>
+        <AddComment id={this.props.id} addComment={this.props.addComment} />
+      </div>
+    );
+  }
+}
+
+export default Feed;
