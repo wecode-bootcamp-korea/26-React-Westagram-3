@@ -1,6 +1,7 @@
 @import '../../../styles/variables.scss';
 
 main#main-page-ysLim {
+  font-family: Arial, Helvetica, sans-serif;
   width: 800px;
   margin: 120px auto 40px auto;
 
@@ -302,4 +303,11 @@ main#main-page-ysLim {
       display: none;
     }
   }
+}
+
+.activatedLikeYS {
+  color: red;
+}
+.deactivatedLikeYS {
+  color: black;
 }

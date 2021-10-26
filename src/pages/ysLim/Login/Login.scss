@@ -3,6 +3,7 @@
 main#login-page-ysLim {
   @include flexCenter;
   height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
 
   .main-container {
     width: 500px;
@@ -19,6 +20,7 @@ main#login-page-ysLim {
 
     .logo-box {
       font-size: 80px;
+      font-family: 'Lobster', cursive;
       margin-top: 40px;
     }
 
@@ -46,10 +48,16 @@ main#login-page-ysLim {
       border-width: 0;
     }
 
-    .login-button {
+    #submit {
       color: white;
       opacity: 1;
-      background: blue;
     }
   }
+}
+
+.activateLoginBtnYsLim {
+  background: blue;
+}
+.deactivateLoginBtnYsLim {
+  background: rgb(156, 156, 255);
 }

@@ -3,12 +3,16 @@ import CommentItem from './CommentItem/CommentItem';
 
 export class CommentList extends Component {
   render() {
+    const { id, comments } = this.props;
     return (
       <div className="post-comments">
-        {this.props.comments.map(comment => {
-          if (this.props.id === comment.feedId)
-            return <CommentItem key={comment.id} comment={comment} />;
-        })}
+        {comments.map(comment =>
+          id === comment.feedId ? (
+            <CommentItem key={comment.id} comment={comment} />
+          ) : (
+            false
+          )
+        )}
       </div>
     );
   }

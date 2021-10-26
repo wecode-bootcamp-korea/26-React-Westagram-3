@@ -8,15 +8,17 @@ export class AddComment extends Component {
     };
   }
   onSubmit = e => {
+    const { content } = this.state;
+    const { id, addComment } = this.props;
     e.preventDefault();
-    if (this.state.content !== '')
-      this.props.addComment(this.props.id, this.state.content);
+    if (content !== '') addComment(id, content);
     this.setState({ content: '' });
   };
   onChange = e => {
     this.setState({ content: e.target.value });
   };
   render() {
+    const { content } = this.state;
     return (
       <form onSubmit={this.onSubmit} className="post-writing-comments">
         <input
@@ -25,7 +27,7 @@ export class AddComment extends Component {
           className="write-comment"
           type="text"
           placeholder="댓글 달기..."
-          value={this.state.content}
+          value={content}
           onChange={this.onChange}
         />
         <input

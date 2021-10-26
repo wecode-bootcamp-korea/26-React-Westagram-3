@@ -33,6 +33,7 @@ class MainLim extends Component {
   }
 
   addComment = (feedId, content) => {
+    const { userComment } = this.state;
     const newComment = {
       id: Math.floor(Math.random() * 2000),
       feedId: feedId,
@@ -40,18 +41,19 @@ class MainLim extends Component {
       content: content,
       isLiked: false,
     };
-    this.setState({ userComment: [...this.state.userComment, newComment] });
+    this.setState({ userComment: [...userComment, newComment] });
   };
 
   render() {
+    const { userComment, feed } = this.state;
     return (
       <main id="main-page-ysLim">
         <article>
-          {this.state.feed.map(vl => (
+          {feed.map(vl => (
             <Feed
               key={vl.id}
               id={vl.id}
-              comments={this.state.userComment}
+              comments={userComment}
               addComment={this.addComment}
             />
           ))}
@@ -62,7 +64,7 @@ class MainLim extends Component {
               id="profile"
               className="profile"
               src={process.env.PUBLIC_URL + '/images/ysLim/main/profile3.png'}
-              alt="My pic"
+              alt="mincraft_bangbang profile"
             />
             <div className="my-username">
               <span className="username">mincraft_bangbang</span>
@@ -84,7 +86,7 @@ class MainLim extends Component {
                   src={
                     process.env.PUBLIC_URL + '/images/ysLim/main/profile4.png'
                   }
-                  alt="My pic"
+                  alt="Random user's profile 1"
                 />
                 <div className="my-username">
                   <span className="userID">_yum_s</span>
@@ -100,7 +102,7 @@ class MainLim extends Component {
                   src={
                     process.env.PUBLIC_URL + '/images/ysLim/main/profile8.png'
                   }
-                  alt="My pic"
+                  alt="Random user's profile 2"
                 />
                 <div className="my-username">
                   <span className="userID">drink_n_drink_</span>
@@ -116,7 +118,7 @@ class MainLim extends Component {
                   src={
                     process.env.PUBLIC_URL + '/images/ysLim/main/profile6.png'
                   }
-                  alt="My pic"
+                  alt="Random user's profile 3"
                 />
                 <div className="my-username">
                   <span className="userID">butter_oiler</span>

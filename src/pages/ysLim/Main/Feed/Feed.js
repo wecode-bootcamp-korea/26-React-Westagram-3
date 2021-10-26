@@ -4,6 +4,7 @@ import AddComment from './Comment/AddComment';
 
 export class Feed extends Component {
   render() {
+    const { id, comments, addComment } = this.props;
     return (
       <div className="post post1">
         <div className="post-top">
@@ -12,7 +13,7 @@ export class Feed extends Component {
               id="profile"
               className="profile"
               src={process.env.PUBLIC_URL + '/images/ysLim/main/profile.png'}
-              alt="tl's profile images"
+              alt="tl's profile"
             />
             <span className="username">aescript</span>
           </div>
@@ -45,10 +46,10 @@ export class Feed extends Component {
           <span className="username">aescript</span> 위워크에서 진행한 베이킹
           클래스...<span className="more-post">더보기</span>
         </div>
-        <CommentList id={this.props.id} comments={this.props.comments} />
+        <CommentList id={id} comments={comments} />
 
         <div className="post-date">21분 전</div>
-        <AddComment id={this.props.id} addComment={this.props.addComment} />
+        <AddComment id={id} addComment={addComment} />
       </div>
     );
   }
