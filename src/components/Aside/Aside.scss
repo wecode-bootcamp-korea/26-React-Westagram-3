@@ -89,32 +89,32 @@
     align-items: center;
     margin-bottom: 10px;
     justify-content: space-between;
-  }
-  .recommend-main p:first-child {
-    color: black;
-  }
 
-  .recommend-main p:nth-child(2) {
-    color: rgba(0, 0, 0, 0.3);
-    font-size: 12px;
-  }
+    .recommend-main p:first-child {
+      color: black;
+    }
 
-  .recommend-main__pic {
-    background: tomato;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
+    .recommend-main p:nth-child(2) {
+      color: rgba(0, 0, 0, 0.3);
+      font-size: 12px;
+    }
 
-  .follow-btn {
-    border: none;
-    background: none;
-    color: #4eb7fd;
-    font-weight: 700;
+    .recommend-main__pic {
+      background: tomato;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .follow-btn {
+      border: none;
+      background: none;
+      color: #4eb7fd;
+      font-weight: 700;
+    }
   }
 }
-
 .copyright {
   color: rgba(0, 0, 0, 0.3);
   font-size: 11px;

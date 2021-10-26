@@ -1,14 +1,5 @@
 @import '//src/styles/variables.scss';
-
-* {
-  margin: 0;
-  box-sizing: border-box;
-}
-
-.body,
-.total {
-  height: 100%;
-}
+@import '//src/styles/common.scss';
 
 .feed-image {
   width: 21px;
@@ -21,50 +12,6 @@
 }
 
 .total {
-  margin-top: 140px;
+  margin-top: 100px;
   font-weight: 700;
-}
-
-.nav-bar-jw {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-bottom: 60px;
-  padding: 15px 0;
-  // border-bottom: 1px solid lightgray;
-
-  .nav-bar__left {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 190px;
-  }
-
-  .thinLine {
-    width: 2px;
-    height: 20px;
-    background: black;
-  }
-
-  .westagram {
-    font-family: 'Lobster', cursive;
-    font-weight: lighter;
-    font-size: 26px;
-  }
-
-  .nav-bar__mid {
-    border: 1px solid lightgray;
-    width: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: rgba(0, 0, 0, 0.3);
-    text-align: center;
-  }
-
-  .nav-bar__right {
-    width: 120px;
-    display: flex;
-    justify-content: space-between;
-  }
 }

@@ -1,0 +1,5 @@
+[
+  { "id": 1, "userName": "kang", "ripple": "안녕하세용" },
+  { "id": 2, "userName": "park", "ripple": "Hi, kang" },
+  { "id": 3, "userName": "Lee", "ripple": "성지순례 왔습니다" }
+]

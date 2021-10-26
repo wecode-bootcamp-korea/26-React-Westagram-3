@@ -37,13 +37,13 @@
     width: 440px;
   }
 
-  .feed-mid {
+  .feed-emoji {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 5px 12px;
 
-    .feed-mid__left {
+    .feed-emoji__left {
       width: 100px;
       display: flex;
       justify-content: space-between;
@@ -63,7 +63,7 @@
     }
   }
 
-  .rippleBox {
+  .commentBox {
     display: flex;
     justify-content: space-between;
     padding: 7px 12px;
@@ -75,7 +75,7 @@
       border: none;
     }
 
-    .rippleBox p:nth-child(2) {
+    .commentBox p:nth-child(2) {
       color: #4eb7fd;
     }
 

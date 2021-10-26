@@ -26,7 +26,7 @@ class Aside extends React.Component {
           <div className="story-main story-main-first">
             <div className="story-main__pic story-main__pic1" />
             <div className="story-main__user1">
-              <p>egun_motchamji</p>
+              <p>ji</p>
               <p>1분 전</p>
             </div>
           </div>
@@ -34,7 +34,7 @@ class Aside extends React.Component {
           <div className="story-main story-main-second">
             <div className="story-main__pic story-main__pic2" />
             <div className="story-main__user2">
-              <p>gudok_joayo</p>
+              <p>joy</p>
               <p>3시간 전</p>
             </div>
           </div>
@@ -42,7 +42,7 @@ class Aside extends React.Component {
           <div className="story-main story-main-third">
             <div className="story-main__pic story-main__pic3" />
             <div className="story-main__user3">
-              <p>git_so_hard</p>
+              <p>git</p>
               <p>18시간 전</p>
             </div>
           </div>
@@ -50,7 +50,7 @@ class Aside extends React.Component {
           <div className="story-main story-main-fourth">
             <div className="story-main__pic story-main__pic4" />
             <div className="story-main__user4">
-              <p>window_user</p>
+              <p>window</p>
               <p>1일 전</p>
             </div>
           </div>
@@ -65,8 +65,8 @@ class Aside extends React.Component {
           <div className="recommend-main recommend-main-first">
             <div className="recommend-main__pic recommend-main__pic1" />
             <div className="recommend-main__user1">
-              <p>fe_developer</p>
-              <p>legeno님 외 2명이...</p>
+              <p>front</p>
+              <p>lego님 외 2명이...</p>
             </div>
             <button className="follow-btn">팔로우</button>
           </div>
@@ -74,8 +74,8 @@ class Aside extends React.Component {
           <div className="recommend-main recommend-main-second">
             <div className="recommend-main__pic recommend-main__pic2" />
             <div className="recommend-main__user2">
-              <p>a__baegopuda</p>
-              <p>pizza님 외 12명이...</p>
+              <p>bob</p>
+              <p>piz님 외 12명이...</p>
             </div>
             <button className="follow-btn">팔로우</button>
           </div>
@@ -83,8 +83,8 @@ class Aside extends React.Component {
           <div className="recommend-main recommend-main-third">
             <div className="recommend-main__pic recommend-main__pic3" />
             <div className="recommend-main__user3">
-              <p>domang_chyeo</p>
-              <p>guard님 외 7명이...</p>
+              <p>mayo</p>
+              <p>cha님 외 7명이...</p>
             </div>
             <button className="follow-btn">팔로우</button>
           </div>

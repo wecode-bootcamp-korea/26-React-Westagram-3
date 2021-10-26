@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Ripple from '../Ripple/Ripple';
+import Comment from '../Comment/Comment';
 import '../Feed/Feed.scss';
 
 class Feed extends Component {
@@ -9,16 +9,12 @@ class Feed extends Component {
     this.state = {
       commentList: [],
       commentText: '',
-      userId: 'qwer1234',
     };
   }
 
   //input창 댓글 값 확인
   commentState = event => {
-    this.setState(
-      { commentText: event.target.value },
-      console.log('commentText', this.state.commentText)
-    );
+    this.setState({ commentText: event.target.value });
   };
   //클릭으로 댓글 추가
   commentClick = () => {
@@ -30,8 +26,8 @@ class Feed extends Component {
     });
   };
 
-  commentWrite = event => {
-    if (event.key === 'Enter') {
+  enterComment = event => {
+    if (event.code === 'Enter') {
       const newCommentList = this.state.commentList.concat(
         this.state.commentText
       );
@@ -57,11 +53,11 @@ class Feed extends Component {
         <img
           alt="피드사진"
           className="my-picture"
-          src="/images/jwKang//my-picture.jpg"
+          src="/images/jwKang/my-picture.jpg"
         />
 
-        <section className="feed-mid">
-          <div className="feed-mid__left">
+        <section className="feed-emoji">
+          <div className="feed-emoji__left">
             <img
               alt="red-heart"
               className="feed-image heart-red"
@@ -80,7 +76,7 @@ class Feed extends Component {
           </div>
           <img
             alt="bookmark"
-            className="feed-image feed-mid__right"
+            className="feed-image feed-emoji__right"
             src="/images/jwKang//save-instagram.png"
           />
         </section>
@@ -94,17 +90,16 @@ class Feed extends Component {
           <p>travis scott님 외 199,200명이 좋아합니다</p>
         </section>
 
-        <Ripple commentText3={this.state.commentList} />
+        <Comment commentText3={this.state.commentList} />
 
-        <section className="rippleBox">
+        <section className="commentBox">
           <input
             type="text"
             maxLength="10"
             placeholder="댓글 달기..."
             className="comment"
-            id="comment"
             onChange={this.commentState}
-            onKeyPress={this.commentWrite}
+            onKeyPress={this.enterComment}
             value={this.state.commentText}
           />
           <button className="posting-btn" onClick={this.commentClick}>

@@ -7,42 +7,31 @@ class LoginKang extends Component {
     this.state = {
       idInputVal: '',
       pwInputVal: '',
-      color: '#99d6ff',
     };
   }
 
-  handleIdInput = event => {
-    console.log(event.target.value);
+  handleIdInput = e => {
+    const { value } = e.target;
     this.setState({
-      idInputVal: event.target.value,
-    });
-  };
-
-  handlePwInput = event => {
-    console.log(event.target.value);
-    this.setState({
-      pwInputVal: event.target.value,
+      idInputVal: value,
+      pwInputVal: value,
     });
   };
 
   render() {
     return (
       <div className="body">
-        <main className="login-container">
+        <main className="loginContainer">
           <h1 className="title">Westagram</h1>
-          <form className="userForm" id="userForm">
+          <form className="userForm">
             <input
-              required
               className="idBox"
-              id="idBox"
               type="text"
               placeholder="전화번호, 사용자 이름 또는 이메일"
               onChange={this.handleIdInput}
             />
             <input
-              required
               className="pwBox"
-              id="pwBox"
               type="password"
               placeholder="비밀번호"
               onChange={this.handlePwInput}
