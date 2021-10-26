@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './MainRight.scss';
 
 class MainRight extends Component {
   render() {
+    const { storyUserData, recommendUserData } = this.props;
     return (
       <section className="main_right">
         <section className="userInfo">
@@ -18,80 +20,40 @@ class MainRight extends Component {
         <section className="story">
           <div className="storyTitle">
             <h4>스토리</h4>
-            <span> 모두 보기</span>
+            <Link to=""> 모두 보기</Link>
           </div>
           <ul>
-            <li className="userInfo">
-              <img
-                alt="user profile"
-                src="https://images.unsplash.com/photo-1597024065285-6f47cd40f5d0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80"
-              />
-              <div className="userInfoDetail">
-                <span className="userName">yumyum</span>
-                <span className="description">20분 전</span>
-              </div>
-            </li>
-            <li className="userInfo">
-              <img
-                alt="user profile"
-                src="https://images.unsplash.com/photo-1597024065285-6f47cd40f5d0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80"
-              />
-              <div className="userInfoDetail">
-                <span className="userName">lalala</span>
-                <span className="description">1시간 전</span>
-              </div>
-            </li>
-            <li className="userInfo">
-              <img
-                alt="user profile"
-                src="https://images.unsplash.com/photo-1597024065285-6f47cd40f5d0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80"
-              />
-              <div className="userInfoDetail">
-                <span className="userName">pwwwwwww</span>
-                <span className="description">15시간 전</span>
-              </div>
-            </li>
+            {storyUserData.map(data => {
+              return (
+                <li className="userInfo" key={data.id}>
+                  <img alt={data.imgAlt} src={data.img} />
+                  <div className="userInfoDetail">
+                    <span className="userName">{data.userName}</span>
+                    <span className="description">{data.description}</span>
+                  </div>
+                </li>
+              );
+            })}
           </ul>
         </section>
         <section className="recommend">
           <div className="recommendTitle">
             <h4>회원님을 위한 추천</h4>
-            <span>모두 보기</span>
+            <Link to="">모두 보기</Link>
           </div>
           <ul>
-            <li className="userInfo">
-              <img
-                alt="user profile"
-                src="https://images.unsplash.com/photo-1597024065285-6f47cd40f5d0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80"
-              />
-              <div className="userInfoDetail">
-                <span className="userName">yumyum</span>
-                <span className="description">yoyoyoyo님 외</span>
-              </div>
-              <button type="button">팔로우</button>
-            </li>
-            <li className="userInfo">
-              <img
-                alt="user profile"
-                src="https://images.unsplash.com/photo-1597024065285-6f47cd40f5d0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80"
-              />
-              <div className="userInfoDetail">
-                <span className="userName">lalala</span>
-                <span className="description">sumsum님 외</span>
-              </div>
-              <button type="button">팔로우</button>
-            </li>
-            <li className="userInfo">
-              <img
-                alt="user profile"
-                src="https://images.unsplash.com/photo-1597024065285-6f47cd40f5d0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80"
-              />
-              <div className="userInfoDetail">
-                <span className="userName">pwwwwwww</span>
-                <span className="description">newnew님 외</span>
-              </div>
-              <button type="button">팔로우</button>
-            </li>
+            {recommendUserData.map(data => {
+              return (
+                <li className="userInfo" key={data.id}>
+                  <img alt={data.imgAlt} src={data.img} />
+                  <div className="userInfoDetail">
+                    <span className="userName">{data.userName}</span>
+                    <span className="description">{data.description}</span>
+                  </div>
+                  <button type="button">팔로우</button>
+                </li>
+              );
+            })}
           </ul>
         </section>
         <section className="westaInfo">

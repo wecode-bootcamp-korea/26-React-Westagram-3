@@ -3,33 +3,32 @@ import { Link } from 'react-router-dom';
 import './Login.scss';
 
 class LoginJang extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       idInput: '',
       pwInput: '',
     };
-
-    this.handleIdInput = this.handleIdInput.bind(this);
-    this.handlePwInput = this.handlePwInput.bind(this);
   }
 
-  handleIdInput(e) {
-    this.setState({ idInput: e.target.value });
-  }
-
-  handlePwInput(e) {
-    this.setState({ pwInput: e.target.value });
-  }
+  handleInput = e => {
+    const { value, name } = e.target;
+    this.setState({ [name]: value });
+  };
 
   goToMain = () => {
-    return `this.props.history.push('/main-yj')`;
+    const { history } = this.props;
+    history.push('/main-yj');
   };
 
   render() {
-    let idTest = this.state.idInput.indexOf('@');
-    let pwTest = this.state.pwInput.length >= 5;
+    const { handleInput, goToMain } = this;
+    const { idInput, pwInput } = this.state;
+
+    let idTest = idInput.indexOf('@') !== -1;
+    let pwTest = pwInput.length >= 5;
+
     return (
       <main className="loginOuterBox">
         <div className="loginInnerBox">
@@ -38,22 +37,21 @@ class LoginJang extends Component {
             <input
               id="id"
               type="text"
+              name="idInput"
               placeholder="전화번호, 사용자 이름 또는 이메일"
-              onChange={this.handleIdInput}
+              onChange={handleInput}
             />
             <input
               id="pw"
               type="text"
+              name="pwInput"
               placeholder="비밀번호"
-              onChange={this.handlePwInput}
+              onChange={handleInput}
             />
             <button
               id="loginBtn"
-              onClick={this.goToMain}
-              style={{
-                backgroundColor: idTest && pwTest ? '#4192ef' : '#c6defa',
-                cursor: idTest && pwTest ? 'pointer' : 'default',
-              }}
+              onClick={goToMain}
+              className={idTest && pwTest ? 'activated' : 'deactivated'}
             >
               로그인
             </button>

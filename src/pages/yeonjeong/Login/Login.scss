@@ -40,9 +40,18 @@
       margin-bottom: 120px;
       border: none;
       border-radius: 5px;
-      background-color: rgb(198, 222, 250);
       color: white;
       font-weight: bold;
+    }
+
+    .activated {
+      background-color: #4192ef;
+      cursor: pointer;
+    }
+
+    .deactivated {
+      background-color: #c6defa;
+      cursor: default;
     }
   }
 

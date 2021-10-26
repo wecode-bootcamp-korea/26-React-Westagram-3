@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './Feed.scss';
 import Comment from './Comment';
+import './Feed.scss';
 
 class Feed extends Component {
   constructor() {
@@ -14,12 +14,14 @@ class Feed extends Component {
   }
 
   checkInput = e => {
-    this.setState({ newComment: e.target.value });
+    const { value } = e.target;
+    this.setState({ newComment: value });
   };
 
   addComment = e => {
+    const { commentList, newComment } = this.state;
     this.setState({
-      commentList: this.state.commentList.concat(this.state.newComment),
+      commentList: commentList.concat(newComment),
       newComment: '',
     });
   };
@@ -34,28 +36,37 @@ class Feed extends Component {
     e.preventDefault();
   };
 
+  componentDidMount() {
+    fetch('http://localhost:3000/data/yeonjeong/commentData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data =>
+        this.setState({
+          commentList: data,
+        })
+      );
+  }
+
   render() {
-    return (
-      <section className="feed">
-        <article>
+    const { feedData } = this.props;
+    const { newComment } = this.state;
+    const { checkInput, addComment, pressEnter, handleSubmit } = this;
+
+    return feedData.map(data => {
+      return (
+        <article key={data.id}>
           <div className="feedHeader">
             <div className="userInfo">
-              <img
-                alt="user profile"
-                src="https://images.unsplash.com/photo-1634161906242-43a1d5beef68?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=464&q=80"
-              />
+              <img alt="user profile" src={data.userImg} />
               <div className="userInfoDetail">
-                <span className="userName">eliz_j_</span>
-                <span className="description">WeCode - 위코드</span>
+                <span className="userName">{data.userName}</span>
+                <span className="description">{data.location}</span>
               </div>
             </div>
             <i className="fas fa-ellipsis-h" />
           </div>
-          <img
-            className="feedImg"
-            alt="feed content"
-            src="/images/yeonjeong/Main/Cat.JPG"
-          />
+          <img className="feedImg" alt="feed content" src={data.feedImg} />
           <div className="feedIcon">
             <i className="far fa-heart" />
             <i className="far fa-comment" />
@@ -73,38 +84,33 @@ class Feed extends Component {
               </span>
             </div>
             <div className="feedText">
-              <b>eliz_j_</b>
+              <b>{data.userName}</b>
               <span>
-                &nbsp;나만 고양이 없어ㅠㅠ&nbsp;&nbsp;
-                <Link to="/main-yj">더 보기</Link>
+                &nbsp;{data.feedText}&nbsp;&nbsp;
+                <Link to="">더 보기</Link>
               </span>
             </div>
             <ul className="feedComment">
-              <li>
-                <b>yeonjeong</b>
-                <span>&nbsp;나도 고양이 없어ㅠㅠ</span>
-                <button className="deleteBtn">x</button>
-              </li>
-              <Comment commentList={this.state.commentList} />
+              <Comment commentList={data.comment} />
             </ul>
             <span className="feedUploadTime">1시간 전</span>
           </div>
-          <form className="feedCommentInput" onSubmit={this.handleSubmit}>
+          <form className="feedCommentInput" onSubmit={handleSubmit}>
             <input
               id="commentInput"
               type="text"
               placeholder="댓글 달기..."
-              onChange={this.checkInput}
-              onKeyPress={this.pressEnter}
-              value={this.state.newComment}
+              onChange={checkInput}
+              onKeyPress={pressEnter}
+              value={newComment}
             />
-            <button id="uploadBtn" type="button" onClick={this.addComment}>
+            <button id="uploadBtn" type="button" onClick={addComment}>
               게시
             </button>
           </form>
         </article>
-      </section>
-    );
+      );
+    });
   }
 }
 

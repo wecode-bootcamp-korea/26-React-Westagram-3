@@ -1,0 +1,77 @@
+[
+  {
+    "id": 1,
+    "userName": "eliz_j_",
+    "userImg": "https://images.unsplash.com/photo-1634161906242-43a1d5beef68?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=464&q=80",
+    "location": "WeCode - 위코드",
+    "feedImg": "/images/yeonjeong/Main/Cat.JPG",
+    "feedText": "나만 고양이 없어ㅠㅠ",
+    "comment": [
+      {
+        "id": 1,
+        "userName": "yeonjeong",
+        "text": "나도 고양이 없어ㅠㅠ"
+      },
+      {
+        "id": 2,
+        "userName": "lululala",
+        "text": "수리고양이 짱귀여움"
+      },
+      {
+        "id": 3,
+        "userName": "lululala-2",
+        "text": "나도봤음"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "userName": "eliz_j_",
+    "userImg": "https://images.unsplash.com/photo-1634161906242-43a1d5beef68?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=464&q=80",
+    "location": "WeCode - 위코드",
+    "feedImg": "/images/yeonjeong/Main/Cat.JPG",
+    "feedText": "나만 고양이 없어ㅠㅠ",
+    "comment": [
+      {
+        "id": 1,
+        "userName": "hello",
+        "text": "Nice to meet you"
+      },
+      {
+        "id": 2,
+        "userName": "nunnunana",
+        "text": "nunnunana"
+      },
+      {
+        "id": 3,
+        "userName": "hahahoho",
+        "text": "hahahoho"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "userName": "eliz_j_",
+    "userImg": "https://images.unsplash.com/photo-1634161906242-43a1d5beef68?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=464&q=80",
+    "location": "WeCode - 위코드",
+    "feedImg": "/images/yeonjeong/Main/Cat.JPG",
+    "feedText": "나만 고양이 없어ㅠㅠ",
+    "comment": [
+      {
+        "id": 1,
+        "userName": "yoyo",
+        "text": "yoyo"
+      },
+      {
+        "id": 2,
+        "userName": "lulu",
+        "text": "nunnunana"
+      },
+      {
+        "id": 3,
+        "userName": "hahahoho",
+        "text": "hahahoho"
+      }
+    ]
+  }
+]
