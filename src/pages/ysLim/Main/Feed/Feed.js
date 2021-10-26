@@ -45,16 +45,7 @@ export class Feed extends Component {
           <span className="username">aescript</span> 위워크에서 진행한 베이킹
           클래스...<span className="more-post">더보기</span>
         </div>
-        <div id="post-comments-box#1">
-          <div className="post-comments">
-            <span className="username">klassethomas</span>
-            <span className="comment-text"> 거봐 좋았잖아~~~~:)</span>
-            <i className="heart-icon">
-              <i className="fas fa-heart" />
-            </i>
-            <CommentList id={this.props.id} comments={this.props.comments} />
-          </div>
-        </div>
+        <CommentList id={this.props.id} comments={this.props.comments} />
 
         <div className="post-date">21분 전</div>
         <AddComment id={this.props.id} addComment={this.props.addComment} />

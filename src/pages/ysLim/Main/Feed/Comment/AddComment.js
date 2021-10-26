@@ -9,7 +9,8 @@ export class AddComment extends Component {
   }
   onSubmit = e => {
     e.preventDefault();
-    this.props.addComment(this.props.id, this.state.content);
+    if (this.state.content !== '')
+      this.props.addComment(this.props.id, this.state.content);
     this.setState({ content: '' });
   };
   onChange = e => {

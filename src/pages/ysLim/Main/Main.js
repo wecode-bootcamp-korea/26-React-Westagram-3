@@ -12,18 +12,18 @@ class MainLim extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/feedDataYsLim.json', {
-      method: 'GET', // GET method는 기본값이라서 생략이 가능합니다.
-    }) // 예시코드에서는 이해를 돕기 위해 명시적으로 기입해뒀습니다.
+    fetch('http://localhost:3000/data/ysLim/feedData.json', {
+      method: 'GET',
+    })
       .then(res => res.json())
       .then(data => {
         this.setState({
           feed: data,
         });
       });
-    fetch('http://localhost:3000/data/commentDataYsLim.json', {
-      method: 'GET', // GET method는 기본값이라서 생략이 가능합니다.
-    }) // 예시코드에서는 이해를 돕기 위해 명시적으로 기입해뒀습니다.
+    fetch('http://localhost:3000/data/ysLim/commentData.json', {
+      method: 'GET',
+    })
       .then(res => res.json())
       .then(data => {
         this.setState({
