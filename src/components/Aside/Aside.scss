@@ -1,0 +1,121 @@
+@import '//src/styles/variables.scss';
+
+.aside-top {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+
+  .wecode-logo {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 14px;
+  }
+
+  .wecode-name p:nth-child(2) {
+    font-size: 12px;
+    font-weight: bolder;
+    color: rgba(0, 0, 0, 0.3);
+  }
+}
+
+.insta-story {
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  padding: 8px;
+  width: 220px;
+  height: 158px;
+  overflow: hidden;
+  margin-bottom: 12px;
+
+  .story-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+
+  .story-id {
+    font-weight: bolder;
+    color: rgb(170, 170, 170);
+  }
+}
+
+.story-main {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.story-main p:first-child {
+  color: black;
+  margin-bottom: 3px;
+}
+
+.story-main p:nth-child(2) {
+  color: rgba(0, 0, 0, 0.3);
+  font-size: 12px;
+}
+
+.story-main__pic {
+  background: tomato;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.recommend {
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  padding: 8px;
+  width: 220px;
+  height: 164px;
+  overflow: hidden;
+  margin-bottom: 12px;
+
+  .recommend-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+
+    .recommend-user {
+      color: rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .recommend-main {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    justify-content: space-between;
+  }
+  .recommend-main p:first-child {
+    color: black;
+  }
+
+  .recommend-main p:nth-child(2) {
+    color: rgba(0, 0, 0, 0.3);
+    font-size: 12px;
+  }
+
+  .recommend-main__pic {
+    background: tomato;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .follow-btn {
+    border: none;
+    background: none;
+    color: #4eb7fd;
+    font-weight: 700;
+  }
+}
+
+.copyright {
+  color: rgba(0, 0, 0, 0.3);
+  font-size: 11px;
+}
