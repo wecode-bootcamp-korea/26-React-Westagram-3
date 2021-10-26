@@ -4,6 +4,7 @@ nav {
   @include flex-align-center;
   justify-content: space-around;
   position: fixed;
+  top: 0;
   height: 55px;
   width: 100%;
   padding: 10px, 35px, 5px, 35px;
