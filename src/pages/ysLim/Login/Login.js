@@ -51,13 +51,6 @@ class LoginLim extends Component {
           </div>
           <form className="login-info-box" onSubmit={e => e.preventDefault()}>
             <input
-              id="username"
-              name="username"
-              type="text"
-              onChange={this.handleInput}
-              placeholder="이름"
-            />
-            <input
               id="email"
               className="info-input"
               name="userID"
@@ -71,13 +64,6 @@ class LoginLim extends Component {
               type="password"
               onChange={this.handleInput}
               placeholder="비밀번호"
-            />
-            <input
-              id="contact"
-              name="contact"
-              type="text"
-              onChange={this.handleInput}
-              placeholder="전화번호"
             />
             <input
               id="submit"
