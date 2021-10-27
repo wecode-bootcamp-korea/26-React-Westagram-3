@@ -7,20 +7,20 @@ main#main-page-ysLim {
       border-top: 1px lightgray solid;
 
       input.write-comment {
-        border: none;
         width: 400px;
+        border: none;
       }
 
       .write-comment:focus {
-        outline: none !important;
         border: none;
+        outline: none !important;
       }
 
       .submit-comment {
         float: right;
-        color: gray;
         background-color: rgba(0, 0, 0, 0);
         border: none;
+        color: gray;
       }
 
       .activate-comment-submit {

@@ -1,25 +1,25 @@
 @import '../../../styles/variables.scss';
 
 main#main-page-ysLim {
-  font-family: Arial, Helvetica, sans-serif;
   width: 800px;
   margin: 120px auto 40px auto;
   font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
 
   article {
     width: 500px;
+    margin-top: 100px;
     padding-right: 18px;
     padding-bottom: 15px;
-    margin-top: 100px;
   }
   .profile-username {
     @include flex-align-center();
   }
 
   .profile {
+    width: 40px;
     margin-right: 5px;
     border-radius: 50%;
-    width: 40px;
   }
 
   .username {
@@ -31,16 +31,16 @@ main#main-page-ysLim {
   }
 
   aside {
-    height: 70vh;
-    width: 300px;
     position: fixed;
     top: 120px;
     left: 50%;
+    width: 300px;
+    height: 70vh;
     margin-left: 100px;
 
     section {
-      overflow: hidden;
       width: 100%;
+      overflow: hidden;
     }
 
     section.my-profile {
@@ -53,12 +53,12 @@ main#main-page-ysLim {
 
     section.story,
     section.recommend {
-      margin-top: 10px;
       height: 194px;
+      margin-top: 10px;
       background-color: white;
-      font-size: 1em;
       border: 1px lightgray solid;
       border-radius: 1px;
+      font-size: 1em;
 
       .recommend-bar,
       .story-bar {
@@ -71,8 +71,8 @@ main#main-page-ysLim {
       }
 
       .see-all {
-        font-weight: 700;
         float: right;
+        font-weight: 700;
       }
 
       .story-list,
@@ -88,11 +88,10 @@ main#main-page-ysLim {
 
         li {
           @include flex-align-center();
-
           position: relative;
           margin: 10px 0;
-
           line-height: 1.2;
+
           .profile {
             width: 32px;
             height: 32px;
@@ -106,14 +105,13 @@ main#main-page-ysLim {
               font-weight: 800;
             }
           }
-
           .story-img-activate {
             position: absolute;
             left: 0px;
             top: 0px;
-            border: 2px red solid;
             width: 40px;
             height: 40px;
+            border: 2px red solid;
             border-radius: 50%;
           }
         }
@@ -150,19 +148,11 @@ main#main-page-ysLim {
         }
       }
     }
-
-    footer .aside-footer-info {
-      margin-top: 10px;
-      height: 180px;
-      line-height: 1.2;
-    }
   }
   .hideThis {
     display: none;
   }
 }
-
-/* aside part start*/
 
 @media only screen and (max-width: 820px) {
   main#main-page {

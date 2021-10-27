@@ -7,8 +7,8 @@ class LoginLim extends Component {
     this.state = {
       userID: '',
       userPassword: '',
-      username: '',
-      contact: '',
+      // username: '',
+      // contact: '',
     };
   }
 
@@ -20,21 +20,22 @@ class LoginLim extends Component {
   };
 
   isOkayToGo = e => {
-    const { userID, userPassword, username, contact } = this.state;
-    fetch('http://10.58.2.138:8000/users/login', {
+    const { userID, userPassword } = this.state;
+    fetch('http://10.58.1.234:8000/user/login', {
       method: 'POST',
       body: JSON.stringify({
         email: userID,
         password: userPassword,
-        name: username,
-        contact: contact,
+        // name: this.state.username,
+        // phone_num: this.state.contact,
       }),
     })
       .then(res => res.json())
+      // .then(res => console.log('결과', res));
       .then(result => {
         const { history } = this.props;
         if (result.message === 'INVALID_USER') {
-          alert('login please');
+          alert('login please'); ////////
         } else if (result.access_token) {
           localStorage.setItem('token', result.access_token);
           history.push('/main-ys');

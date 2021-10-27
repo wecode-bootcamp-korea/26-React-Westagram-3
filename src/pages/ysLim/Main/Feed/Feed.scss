@@ -2,10 +2,10 @@
 
 main#main-page-ysLim {
   .post {
-    line-height: 1.45em;
+    margin-bottom: 20px;
     background-color: white;
     border: 1px lightgray solid;
-    margin-bottom: 20px;
+    line-height: 1.45em;
 
     .post-top {
       display: flex;
@@ -29,9 +29,10 @@ main#main-page-ysLim {
       padding: 16px 20px 16px 20px;
 
       i {
-        font-size: 22px;
         margin-right: 10px;
+        font-size: 22px;
       }
+
       i.fa-bookmark {
         float: right;
         margin-right: 0px;
@@ -75,19 +76,20 @@ main#main-page-ysLim {
       border-top: 1px lightgray solid;
 
       input.write-comment {
-        border: none;
         width: 400px;
+        border: none;
+
         &:focus {
-          outline: none !important;
           border: none;
+          outline: none !important;
         }
       }
 
       .submit-comment {
         float: right;
-        color: gray;
         background-color: rgba(0, 0, 0, 0);
         border: none;
+        color: gray;
       }
 
       .activate-comment-submit {
