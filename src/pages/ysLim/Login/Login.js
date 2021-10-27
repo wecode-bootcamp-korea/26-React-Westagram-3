@@ -7,8 +7,6 @@ class LoginLim extends Component {
     this.state = {
       userID: '',
       userPassword: '',
-      // username: '',
-      // contact: '',
     };
   }
 
@@ -26,16 +24,13 @@ class LoginLim extends Component {
       body: JSON.stringify({
         email: userID,
         password: userPassword,
-        // name: this.state.username,
-        // phone_num: this.state.contact,
       }),
     })
       .then(res => res.json())
-      // .then(res => console.log('결과', res));
       .then(result => {
         const { history } = this.props;
         if (result.message === 'INVALID_USER') {
-          alert('login please'); ////////
+          alert('login please');
         } else if (result.access_token) {
           localStorage.setItem('token', result.access_token);
           history.push('/main-ys');
