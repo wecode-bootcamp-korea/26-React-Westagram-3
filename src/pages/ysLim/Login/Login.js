@@ -7,6 +7,8 @@ class LoginLim extends Component {
     this.state = {
       userID: '',
       userPassword: '',
+      username: '',
+      contact: '',
     };
   }
 
@@ -15,6 +17,29 @@ class LoginLim extends Component {
     this.setState({
       [name]: value,
     });
+  };
+
+  isOkayToGo = e => {
+    const { userID, userPassword, username, contact } = this.state;
+    fetch('http://10.58.2.138:8000/users/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: userID,
+        password: userPassword,
+        name: username,
+        contact: contact,
+      }),
+    })
+      .then(res => res.json())
+      .then(result => {
+        const { history } = this.props;
+        if (result.message === 'INVALID_USER') {
+          alert('login please');
+        } else if (result.access_token) {
+          localStorage.setItem('token', result.access_token);
+          history.push('/main-ys');
+        }
+      });
   };
 
   render() {
@@ -28,14 +53,21 @@ class LoginLim extends Component {
           <div className="logo-box">
             <span id="logo">westagram</span>
           </div>
-          <form className="login-info-box">
+          <form className="login-info-box" onSubmit={e => e.preventDefault()}>
             <input
               id="username"
+              name="username"
+              type="text"
+              onChange={this.handleInput}
+              placeholder="이름"
+            />
+            <input
+              id="email"
               className="info-input"
               name="userID"
               type="text"
               onChange={this.handleInput}
-              placeholder="전화번호, 사용자명, 혹은 이메일"
+              placeholder="이메일"
             />
             <input
               id="password"
@@ -43,6 +75,13 @@ class LoginLim extends Component {
               type="password"
               onChange={this.handleInput}
               placeholder="비밀번호"
+            />
+            <input
+              id="contact"
+              name="contact"
+              type="text"
+              onChange={this.handleInput}
+              placeholder="전화번호"
             />
             <input
               id="submit"
@@ -54,6 +93,7 @@ class LoginLim extends Component {
               disabled={!(user && userPW)}
               type="submit"
               value="로그인"
+              onClick={this.isOkayToGo}
             />
           </form>
           <div className="finding-password">비밀번호를 잊으셨나요?</div>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CommentList from './Comment/CommentList';
 import AddComment from './Comment/AddComment';
+import './Feed.scss';
 
 export class Feed extends Component {
   render() {
@@ -43,8 +44,9 @@ export class Feed extends Component {
         </div>
 
         <div className="post-description">
-          <span className="username">aescript</span> 위워크에서 진행한 베이킹
-          클래스...<span className="more-post">더보기</span>
+          <span className="username">aescript</span>
+          위워크에서 진행한 베이킹 클래스...
+          <span className="more-post">더보기</span>
         </div>
         <CommentList id={id} comments={comments} />
 

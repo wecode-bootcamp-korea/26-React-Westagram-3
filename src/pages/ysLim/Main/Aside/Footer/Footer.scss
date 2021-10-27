@@ -1,0 +1,19 @@
+@import '../../../../../styles/variables.scss';
+
+main#main-page-ysLim {
+  aside {
+    footer .aside-footer-info {
+      margin-top: 10px;
+      height: 180px;
+      line-height: 1.2;
+
+      li {
+        display: inline-block;
+      }
+      li + li::before {
+        content: '· ';
+        padding-left: 0.2rem;
+      }
+    }
+  }
+}

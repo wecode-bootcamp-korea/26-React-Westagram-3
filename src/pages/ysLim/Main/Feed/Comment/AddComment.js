@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './AddComment.scss';
 
 export class AddComment extends Component {
   constructor(props) {

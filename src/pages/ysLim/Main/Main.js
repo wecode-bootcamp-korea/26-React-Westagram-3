@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Feed from './Feed/Feed';
+import Info from './Aside/Footer/Footer';
 import './Main.scss';
 
 class MainLim extends Component {
@@ -74,7 +75,7 @@ class MainLim extends Component {
           </section>
           <section className="story">
             <div className="story-bar">
-              <span className="section-name">스토리</span>{' '}
+              <span className="section-name">스토리</span>
               <span className="see-all">모두보기</span>
             </div>
             <ul className="story-list">
@@ -138,6 +139,7 @@ class MainLim extends Component {
                 />
                 <div className="my-username">
                   <span className="userID">maybe-good</span>
+                  <br />
                   <span className="story-time-log">4일 전</span>
                 </div>
               </li>
@@ -145,7 +147,7 @@ class MainLim extends Component {
           </section>
           <section className="recommend">
             <div className="recommend-bar">
-              <span className="section-name">회원님을 위한 추천</span>{' '}
+              <span className="section-name">회원님을 위한 추천</span>
               <span className="see-all">모두보기</span>
             </div>
             <ul className="recommend-list">
@@ -157,7 +159,7 @@ class MainLim extends Component {
                     src={
                       process.env.PUBLIC_URL + '/images/ysLim/main/profile9.jpg'
                     }
-                    alt="My pic"
+                    alt="Random user's profile 4"
                   />
                   <div className="my-username">
                     <span className="userID">ioooooahwow</span>
@@ -178,7 +180,7 @@ class MainLim extends Component {
                       process.env.PUBLIC_URL +
                       '/images/ysLim/main/profile10.jpg'
                     }
-                    alt="My pic"
+                    alt="Random user's profile 5"
                   />
                   <div className="my-username">
                     <span className="userID">lovenpound_sun</span>
@@ -199,7 +201,7 @@ class MainLim extends Component {
                       process.env.PUBLIC_URL +
                       '/images/ysLim/main/profile11.jpg'
                     }
-                    alt="My pic"
+                    alt="Cooper Kao's Face!"
                   />
                   <div className="my-username">
                     <span className="userID">cooper_kao</span>
@@ -213,11 +215,7 @@ class MainLim extends Component {
               </li>
             </ul>
           </section>
-          <section className="info">
-            Westagram 정보 · 지원 · 홍보 센터 · API · 채용 정보 ·
-            개인정보처리방침 · 약관 · 디렉터리 · 프로필 · 해시태그 · 언어 © 2019
-            WESTAGRAM
-          </section>
+          <Info />
         </aside>
       </main>
     );

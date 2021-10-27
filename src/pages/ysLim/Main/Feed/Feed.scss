@@ -1,0 +1,118 @@
+@import '../../../../styles/variables.scss';
+
+main#main-page-ysLim {
+  .post {
+    line-height: 1.45em;
+    background-color: white;
+    border: 1px lightgray solid;
+    margin-bottom: 20px;
+
+    .post-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px 16px 20px;
+    }
+
+    .post-pic-frame {
+      width: 480px;
+      height: 480px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        margin-top: -100px;
+      }
+    }
+
+    .post-icons {
+      padding: 16px 20px 16px 20px;
+
+      i {
+        font-size: 22px;
+        margin-right: 10px;
+      }
+      i.fa-bookmark {
+        float: right;
+        margin-right: 0px;
+      }
+
+      .profile-username {
+        margin-top: 6px;
+
+        .profile {
+          width: 22px;
+        }
+      }
+    }
+
+    .post-description {
+      padding: 0px 20px 0px 20px;
+    }
+    .heart-icon {
+      float: right;
+    }
+
+    .post-comments {
+      padding: 0px 20px 0px 20px;
+
+      .comment-icons {
+        float: right;
+
+        .delete-comment {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .post-date {
+      padding: 0px 20px 16px 20px;
+      color: gray;
+    }
+
+    .post-writing-comments {
+      padding: 20px 20px 20px 20px;
+      border-top: 1px lightgray solid;
+
+      input.write-comment {
+        border: none;
+        width: 400px;
+        &:focus {
+          outline: none !important;
+          border: none;
+        }
+      }
+
+      .submit-comment {
+        float: right;
+        color: gray;
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+      }
+
+      .activate-comment-submit {
+        color: blue;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .hideThis {
+    display: none;
+  }
+}
+
+/* aside part start*/
+
+@media only screen and (max-width: 480px) {
+  main#main-page-ysLim {
+    article {
+      .post-pic-frame {
+        height: 80vw;
+      }
+      input.write-comment {
+        width: 72vw;
+      }
+    }
+  }
+}
