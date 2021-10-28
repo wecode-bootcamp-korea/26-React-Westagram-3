@@ -1,0 +1,120 @@
+@import '../../../../styles/variables.scss';
+
+main.main-page-ysLim {
+  .feed {
+    margin-bottom: 20px;
+    background-color: white;
+    border: 1px lightgray solid;
+    line-height: 1.45em;
+
+    .feed-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px 16px 20px;
+    }
+
+    .feed-pic-frame {
+      width: 480px;
+      height: 480px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        margin-top: -100px;
+      }
+    }
+
+    .feed-icons {
+      padding: 10px 20px 10px 20px;
+
+      i {
+        margin-right: 10px;
+        font-size: 22px;
+      }
+
+      i.fa-bookmark {
+        float: right;
+        margin-right: 0px;
+      }
+
+      .profile-username {
+        margin-top: 6px;
+
+        .profile {
+          width: 22px;
+        }
+      }
+    }
+
+    .feed-description {
+      padding: 0px 20px 0px 20px;
+    }
+    .heart-icon {
+      float: right;
+    }
+
+    .feed-comments {
+      padding: 0px 20px 0px 20px;
+
+      .comment-icons {
+        float: right;
+
+        .delete-comment {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .feed-date {
+      padding: 0px 20px 16px 20px;
+      color: gray;
+    }
+
+    .feed-writing-comments {
+      padding: 20px 20px 20px 20px;
+      border-top: 1px lightgray solid;
+
+      input.write-comment {
+        width: 400px;
+        border: none;
+
+        &:focus {
+          border: none;
+          outline: none !important;
+        }
+      }
+
+      .submit-comment {
+        float: right;
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+        color: gray;
+      }
+
+      .activate-comment-submit {
+        color: blue;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .hideThis {
+    display: none;
+  }
+}
+
+/* aside part start*/
+
+@media only screen and (max-width: 480px) {
+  main.main-page-ysLim {
+    article {
+      .feed-pic-frame {
+        height: 80vw;
+      }
+      input.write-comment {
+        width: 72vw;
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+@import '../../../../../styles/variables.scss';
+
+main.main-page-ysLim {
+  .feed {
+    .feed-writing-comments {
+      padding: 20px 20px 20px 20px;
+      border-top: 1px lightgray solid;
+
+      input.write-comment {
+        width: 400px;
+        border: none;
+      }
+
+      .write-comment:focus {
+        border: none;
+        outline: none !important;
+      }
+
+      .submit-comment {
+        float: right;
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+        color: gray;
+      }
+
+      .activate-comment-submit {
+        color: blue;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  main.main-page-ysLim {
+    article {
+      input.write-comment {
+        width: 72vw;
+      }
+    }
+  }
+}
