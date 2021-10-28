@@ -17,9 +17,9 @@ class LoginLim extends Component {
     });
   };
 
-  isOkayToGo = e => {
+  submitForm = e => {
     const { userID, userPassword } = this.state;
-    fetch('http://10.58.1.234:8000/user/login', {
+    fetch('http://10.58.1.234:8000/user/signup', {
       method: 'POST',
       body: JSON.stringify({
         email: userID,
@@ -28,30 +28,36 @@ class LoginLim extends Component {
     })
       .then(res => res.json())
       .then(result => {
-        const { history } = this.props;
-        if (result.message === 'INVALID_USER') {
-          alert('login please');
-        } else if (result.access_token) {
+        if (result.message === 'INVALID_USER')
+          alert('아이디와 비밀번호를 다시 입력해주세요');
+        if (result.message === 'DUPLICATION_ERROR')
+          alert('중복된 이메일입니다.');
+        if (result.access_token) {
+          this.goToMain();
           localStorage.setItem('token', result.access_token);
-          history.push('/main-ys');
         }
       });
   };
 
+  goToMain = () => {
+    const { history } = this.props;
+    history.push('/main-ys');
+  };
+
   render() {
     const { userID, userPassword } = this.state;
-    let user = userID.includes('@');
-    let userPW = userPassword.length > 4;
+    let isIdValid = userID.includes('@');
+    let isPwValid = userPassword.length > 4;
+    let isFormValid = isIdValid && isPwValid;
 
     return (
-      <main id="login-page-ysLim">
+      <main className="login-page-ysLim">
         <section className="main-container">
           <div className="logo-box">
-            <span id="logo">westagram</span>
+            <h1 class="logo">westagram</h1>
           </div>
           <form className="login-info-box" onSubmit={e => e.preventDefault()}>
             <input
-              id="email"
               className="info-input"
               name="userID"
               type="text"
@@ -59,28 +65,22 @@ class LoginLim extends Component {
               placeholder="이메일"
             />
             <input
-              id="password"
               name="userPassword"
               type="password"
               onChange={this.handleInput}
               placeholder="비밀번호"
             />
-            <input
-              id="submit"
-              className={
-                user && userPW
-                  ? 'activateLoginBtnYsLim'
-                  : 'deactivateLoginBtnYsLim'
-              }
-              disabled={!(user && userPW)}
+            <button
+              className={`button Login ${isFormValid ? 'activate' : ''}`}
+              disabled={!isFormValid}
               type="submit"
-              value="로그인"
-              onClick={this.isOkayToGo}
-            />
+              onClick={this.submitForm}
+            >
+              로그인
+            </button>
           </form>
           <div className="finding-password">비밀번호를 잊으셨나요?</div>
         </section>
-        <script src="assets/js/login.js" />
       </main>
     );
   }

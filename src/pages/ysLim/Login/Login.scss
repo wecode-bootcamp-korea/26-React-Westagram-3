@@ -1,6 +1,6 @@
 @import '../../../styles/variables.scss';
 
-main#login-page-ysLim {
+main.login-page-ysLim {
   @include flexCenter;
   height: 100vh;
   font-size: 14px;
@@ -38,25 +38,24 @@ main#login-page-ysLim {
       }
     }
 
-    .login-info-box #submit {
+    .login-info-box button {
       width: 100%;
       height: 50px;
       margin-top: 25px;
       border-radius: 2px;
       border: none;
       font-size: 18px;
-    }
-
-    #submit {
       color: white;
       opacity: 1;
     }
   }
+  .button {
+    background: rgb(156, 156, 255);
+    &.activate {
+      background: blue;
+    }
+  }
 }
 
-.activateLoginBtnYsLim {
-  background: blue;
-}
 .deactivateLoginBtnYsLim {
-  background: rgb(156, 156, 255);
 }
