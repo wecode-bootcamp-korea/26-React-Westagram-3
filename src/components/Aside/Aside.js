@@ -5,7 +5,7 @@ class Aside extends React.Component {
   render() {
     return (
       <aside>
-        <section className="aside-top">
+        <section className="asideTopJW">
           <img
             alt="위코드로고"
             className="wecode-logo"

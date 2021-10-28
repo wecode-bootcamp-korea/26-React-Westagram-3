@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Login.scss';
+import { withRouter } from 'react-router-dom';
 
 class LoginKang extends Component {
   constructor() {
@@ -10,11 +11,31 @@ class LoginKang extends Component {
     };
   }
 
+  //fetch 함수 시작
+  goToMain = e => {
+    console.log('go to main function');
+    e.preventDefault();
+    console.log(this.state.pwInputVal);
+    fetch('http://10.58.2.168:8000/users/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: this.state.idInputVal,
+        password: this.state.pwInputVal,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => console.log('결과 : ', result));
+  };
+
   handleIdInput = e => {
-    const { value } = e.target;
     this.setState({
-      idInputVal: value,
-      pwInputVal: value,
+      idInputVal: e.target.value,
+    });
+  };
+
+  handlePwInput = e => {
+    this.setState({
+      pwInputVal: e.target.value,
     });
   };
 
@@ -37,6 +58,7 @@ class LoginKang extends Component {
               onChange={this.handlePwInput}
             />
             <button
+              onClick={this.goToMain}
               className={
                 this.state.idInputVal.indexOf('@') !== -1 &&
                 this.state.pwInputVal.length > 5

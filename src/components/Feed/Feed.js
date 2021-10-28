@@ -28,16 +28,17 @@ class Feed extends Component {
 
   enterComment = event => {
     if (event.code === 'Enter') {
-      const newCommentList = this.state.commentList.concat(
-        this.state.commentText
-      );
-      this.setState({ commentList: newCommentList, commentText: '' });
+      this.commentClick();
+      // const newCommentList = this.state.commentList.concat(
+      //   this.state.commentText
+      // );
+      // this.setState({ commentList: newCommentList, commentText: '' });
     }
   };
 
   render() {
     return (
-      <main className="insta-main">
+      <main className="feedMainJW">
         <section className="feed-top">
           <div className="feed-top__left">
             <div className="feed-profile__picture" />
