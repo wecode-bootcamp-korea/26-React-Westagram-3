@@ -1,20 +1,20 @@
 @import '../../../../styles/variables.scss';
 
-main#main-page-ysLim {
-  .post {
+main.main-page-ysLim {
+  .feed {
     margin-bottom: 20px;
     background-color: white;
     border: 1px lightgray solid;
     line-height: 1.45em;
 
-    .post-top {
+    .feed-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 16px 24px 16px 20px;
     }
 
-    .post-pic-frame {
+    .feed-pic-frame {
       width: 480px;
       height: 480px;
       overflow: hidden;
@@ -25,8 +25,8 @@ main#main-page-ysLim {
       }
     }
 
-    .post-icons {
-      padding: 16px 20px 16px 20px;
+    .feed-icons {
+      padding: 10px 20px 10px 20px;
 
       i {
         margin-right: 10px;
@@ -47,14 +47,14 @@ main#main-page-ysLim {
       }
     }
 
-    .post-description {
+    .feed-description {
       padding: 0px 20px 0px 20px;
     }
     .heart-icon {
       float: right;
     }
 
-    .post-comments {
+    .feed-comments {
       padding: 0px 20px 0px 20px;
 
       .comment-icons {
@@ -66,12 +66,12 @@ main#main-page-ysLim {
       }
     }
 
-    .post-date {
+    .feed-date {
       padding: 0px 20px 16px 20px;
       color: gray;
     }
 
-    .post-writing-comments {
+    .feed-writing-comments {
       padding: 20px 20px 20px 20px;
       border-top: 1px lightgray solid;
 
@@ -107,9 +107,9 @@ main#main-page-ysLim {
 /* aside part start*/
 
 @media only screen and (max-width: 480px) {
-  main#main-page-ysLim {
+  main.main-page-ysLim {
     article {
-      .post-pic-frame {
+      .feed-pic-frame {
         height: 80vw;
       }
       input.write-comment {

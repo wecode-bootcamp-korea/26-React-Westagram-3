@@ -46,9 +46,9 @@ class LoginLim extends Component {
 
   render() {
     const { userID, userPassword } = this.state;
-    let isIdValid = userID.includes('@');
-    let isPwValid = userPassword.length > 4;
-    let isFormValid = isIdValid && isPwValid;
+    const isIdValid = userID.includes('@');
+    const isPwValid = userPassword.length > 4;
+    const isFormValid = isIdValid && isPwValid;
 
     return (
       <main className="login-page-ysLim">

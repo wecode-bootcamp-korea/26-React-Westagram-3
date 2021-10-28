@@ -6,8 +6,8 @@ export class Info extends Component {
     return (
       <footer>
         <ul className="aside-footer-info">
-          {footerInfo.map(vl => (
-            <li key={vl.id}>{vl.content}</li>
+          {footerInfo.map(info => (
+            <li key={info.id}>{info.content}</li>
           ))}
           <li>© 2019 WESTAGRAM</li>
         </ul>

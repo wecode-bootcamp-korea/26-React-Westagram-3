@@ -6,7 +6,7 @@ export class CommentList extends Component {
   render() {
     const { id, comments } = this.props;
     return (
-      <div className="post-comments">
+      <div className="feed-comments">
         {comments.map(comment =>
           id === comment.feedId ? (
             <CommentItem key={comment.id} comment={comment} />

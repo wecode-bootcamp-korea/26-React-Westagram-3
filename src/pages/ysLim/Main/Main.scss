@@ -1,6 +1,6 @@
 @import '../../../styles/variables.scss';
 
-main#main-page-ysLim {
+main.main-page-ysLim {
   width: 800px;
   margin: 120px auto 40px auto;
   font-size: 14px;
@@ -65,7 +65,7 @@ main#main-page-ysLim {
         padding: 12px 14px 6px 14px;
       }
 
-      .more-post,
+      .more-feed,
       .section-name {
         color: gray;
       }
@@ -155,7 +155,7 @@ main#main-page-ysLim {
 }
 
 @media only screen and (max-width: 820px) {
-  main#main-page {
+  main.main-page-ysLim {
     width: 100%;
 
     article {
