@@ -37,7 +37,7 @@ class Feed extends Component {
   };
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/yeonjeong/commentData.json', {
+    fetch('data/yeonjeong/commentData.json', {
       method: 'GET',
     })
       .then(res => res.json())

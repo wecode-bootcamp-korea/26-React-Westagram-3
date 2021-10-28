@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Feed from './components/Feed';
-import MainRight from './components/MainRight';
+import Aside from './components/Aside';
 import Nav from '../../../components/Nav/Nav';
 import './Main.scss';
 
@@ -16,7 +16,7 @@ class MainJang extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/yeonjeong/feedData.json', {
+    fetch('data/yeonjeong/feedData.json', {
       method: 'GET',
     })
       .then(res => res.json())
@@ -26,7 +26,7 @@ class MainJang extends Component {
         })
       );
 
-    fetch('http://localhost:3000/data/yeonjeong/storyUserData.json', {
+    fetch('data/yeonjeong/storyUserData.json', {
       method: 'GET',
     })
       .then(res => res.json())
@@ -36,7 +36,7 @@ class MainJang extends Component {
         })
       );
 
-    fetch('http://localhost:3000/data/yeonjeong/recommendUserData.json', {
+    fetch('data/yeonjeong/recommendUserData.json', {
       method: 'GET',
     })
       .then(res => res.json())
@@ -56,7 +56,7 @@ class MainJang extends Component {
           <section className="feed">
             <Feed feedData={feedData} />
           </section>
-          <MainRight
+          <Aside
             storyUserData={storyUserData}
             recommendUserData={recommendUserData}
           />

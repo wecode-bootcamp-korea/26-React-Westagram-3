@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './MainRight.scss';
+import './Aside.scss';
 
-class MainRight extends Component {
+class Aside extends Component {
   render() {
     const { storyUserData, recommendUserData } = this.props;
     return (
-      <section className="main_right">
+      <aside className="aside">
         <section className="userInfo">
           <img
             alt="user profile"
@@ -82,9 +82,9 @@ class MainRight extends Component {
           </ul>
           <span className="copyright">&copy; 2019 WESTAGRAM</span>
         </section>
-      </section>
+      </aside>
     );
   }
 }
 
-export default MainRight;
+export default Aside;

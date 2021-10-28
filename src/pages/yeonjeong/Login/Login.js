@@ -17,13 +17,33 @@ class LoginJang extends Component {
     this.setState({ [name]: value });
   };
 
-  goToMain = () => {
-    const { history } = this.props;
-    history.push('/main-yj');
+  handleLogin = () => {
+    const { idInput, pwInput } = this.state;
+    fetch('http://10.58.0.69:8000/user/signin', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: idInput,
+        password: pwInput,
+      }),
+    })
+      .then(res => res.json())
+      .then(result => {
+        const { history } = this.props;
+        if (result.message === 'INVALID_USER') {
+          alert('login please');
+        } else if (result.access_token) {
+          localStorage.setItem('token', result.access_token);
+          history.push('/main-yj');
+        }
+      });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
   };
 
   render() {
-    const { handleInput, goToMain } = this;
+    const { handleInput, handleLogin, handleSubmit } = this;
     const { idInput, pwInput } = this.state;
 
     let idTest = idInput.indexOf('@') !== -1;
@@ -33,7 +53,7 @@ class LoginJang extends Component {
       <main className="loginOuterBox">
         <div className="loginInnerBox">
           <h1>Westagram</h1>
-          <form className="loginForm">
+          <form className="loginForm" onSubmit={handleSubmit}>
             <input
               id="id"
               type="text"
@@ -50,8 +70,9 @@ class LoginJang extends Component {
             />
             <button
               id="loginBtn"
-              onClick={goToMain}
+              onClick={handleLogin}
               className={idTest && pwTest ? 'activated' : 'deactivated'}
+              type="button"
             >
               로그인
             </button>
