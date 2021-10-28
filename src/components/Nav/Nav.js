@@ -4,7 +4,7 @@ import './Nav.scss';
 class Nav extends React.Component {
   render() {
     return (
-      <nav>
+      <nav id="nav-yj">
         <div className="navLogo">
           <img alt="Westagram logo" src="/images/insta_logo.png" />
           <h1>Westagram</h1>

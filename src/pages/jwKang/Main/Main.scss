@@ -1,1 +1,17 @@
-@import '../variables.scss'
+@import '//src/styles/variables.scss';
+@import '//src/styles/common.scss';
+
+.feed-image {
+  width: 21px;
+}
+
+.main-layout {
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+}
+
+.total {
+  margin-top: 100px;
+  font-weight: 700;
+}
