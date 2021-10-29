@@ -1,72 +1,71 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Comment from './Comment';
-import './Feed.scss';
+import Comments from './Comments';
+import './Feeds.scss';
 
-class Feed extends Component {
+class Feeds extends Component {
   constructor() {
     super();
 
     this.state = {
-      commentList: [],
+      comments: [],
       newComment: '',
     };
   }
 
-  checkInput = e => {
+  commentFormInput = e => {
     const { value } = e.target;
     this.setState({ newComment: value });
   };
 
   addComment = e => {
-    const { commentList, newComment } = this.state;
+    const { comments, newComment } = this.state;
     this.setState({
-      commentList: commentList.concat(newComment),
+      comments: comments.concat(newComment),
       newComment: '',
     });
   };
 
-  pressEnter = e => {
+  isEnter = e => {
     if (e.code === 'Enter') {
       this.addComment();
     }
   };
 
-  handleSubmit = e => {
-    e.preventDefault();
-  };
-
-  componentDidMount() {
-    fetch('data/yeonjeong/commentData.json', {
+  handleCommentsData = () => {
+    fetch('data/yeonjeong/commentsData.json', {
       method: 'GET',
     })
       .then(res => res.json())
       .then(data =>
         this.setState({
-          commentList: data,
+          comments: data,
         })
       );
+  };
+
+  componentDidMount() {
+    this.handleCommentsData();
   }
 
   render() {
-    const { feedData } = this.props;
+    const { feedsData } = this.props;
     const { newComment } = this.state;
-    const { checkInput, addComment, pressEnter, handleSubmit } = this;
 
-    return feedData.map(data => {
+    return feedsData.map(feed => {
       return (
-        <article key={data.id}>
+        <article key={feed.id}>
           <div className="feedHeader">
             <div className="userInfo">
-              <img alt="user profile" src={data.userImg} />
+              <img alt="user profile" src={feed.userImg} />
               <div className="userInfoDetail">
-                <span className="userName">{data.userName}</span>
-                <span className="description">{data.location}</span>
+                <span className="userName">{feed.userName}</span>
+                <span className="description">{feed.location}</span>
               </div>
             </div>
             <i className="fas fa-ellipsis-h" />
           </div>
-          <img className="feedImg" alt="feed content" src={data.feedImg} />
+          <img className="feedImg" alt="feed content" src={feed.feedImg} />
           <div className="feedIcon">
             <i className="far fa-heart" />
             <i className="far fa-comment" />
@@ -84,27 +83,37 @@ class Feed extends Component {
               </span>
             </div>
             <div className="feedText">
-              <b>{data.userName}</b>
+              <b>{feed.userName}</b>
               <span>
-                &nbsp;{data.feedText}&nbsp;&nbsp;
+                &nbsp;{feed.feedText}&nbsp;&nbsp;
                 <Link to="">더 보기</Link>
               </span>
             </div>
             <ul className="feedComment">
-              <Comment commentList={data.comment} />
+              <Comments comments={feed.comment} />
             </ul>
             <span className="feedUploadTime">1시간 전</span>
           </div>
-          <form className="feedCommentInput" onSubmit={handleSubmit}>
+          <form
+            className="feedCommentInput"
+            onSubmit={e => {
+              e.preventDefault();
+            }}
+          >
             <input
               id="commentInput"
               type="text"
               placeholder="댓글 달기..."
-              onChange={checkInput}
-              onKeyPress={pressEnter}
+              onChange={this.commentFormInput}
+              onKeyPress={this.isEnter}
               value={newComment}
             />
-            <button id="uploadBtn" type="button" onClick={addComment}>
+            <button
+              id="uploadBtn"
+              type="button"
+              onClick={this.addComment}
+              disabled={newComment.length < 1}
+            >
               게시
             </button>
           </form>
@@ -114,4 +123,4 @@ class Feed extends Component {
   }
 }
 
-export default Feed;
+export default Feeds;

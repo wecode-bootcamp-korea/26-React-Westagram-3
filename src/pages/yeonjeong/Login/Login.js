@@ -7,72 +7,67 @@ class LoginJang extends Component {
     super();
 
     this.state = {
-      idInput: '',
-      pwInput: '',
+      id: '',
+      password: '',
     };
   }
 
-  handleInput = e => {
+  loginFormInput = e => {
     const { value, name } = e.target;
     this.setState({ [name]: value });
   };
 
   handleLogin = () => {
-    const { idInput, pwInput } = this.state;
-    fetch('http://10.58.0.69:8000/user/signin', {
+    const { id, password } = this.state;
+    fetch('https://westagram-signup.herokuapp.com/signup', {
       method: 'POST',
       body: JSON.stringify({
-        email: idInput,
-        password: pwInput,
+        id: id,
+        password: password,
       }),
     })
       .then(res => res.json())
-      .then(result => {
-        const { history } = this.props;
-        if (result.message === 'INVALID_USER') {
-          alert('login please');
-        } else if (result.access_token) {
-          localStorage.setItem('token', result.access_token);
-          history.push('/main-yj');
-        }
-      });
+      .then(result => console.log(result));
   };
 
-  handleSubmit = e => {
-    e.preventDefault();
+  goToMain = e => {
+    const { history } = this.props;
+    history.push('/main-yj');
   };
 
   render() {
-    const { handleInput, handleLogin, handleSubmit } = this;
-    const { idInput, pwInput } = this.state;
+    const { id, password } = this.state;
 
-    let idTest = idInput.indexOf('@') !== -1;
-    let pwTest = pwInput.length >= 5;
+    const isIdValid = id.indexOf('@') !== -1;
+    const isPwValid = password.length >= 5;
 
     return (
       <main className="loginOuterBox">
         <div className="loginInnerBox">
           <h1>Westagram</h1>
-          <form className="loginForm" onSubmit={handleSubmit}>
+          <form
+            className="loginForm"
+            onSubmit={e => {
+              e.preventDefault();
+            }}
+          >
             <input
-              id="id"
               type="text"
-              name="idInput"
+              name="id"
               placeholder="전화번호, 사용자 이름 또는 이메일"
-              onChange={handleInput}
+              onChange={this.loginFormInput}
             />
             <input
-              id="pw"
               type="text"
-              name="pwInput"
+              name="password"
               placeholder="비밀번호"
-              onChange={handleInput}
+              onChange={this.loginFormInput}
             />
             <button
-              id="loginBtn"
-              onClick={handleLogin}
-              className={idTest && pwTest ? 'activated' : 'deactivated'}
+              onClick={this.handleLogin}
+              className={isIdValid && isPwValid ? 'btn' : 'btn deactivated'}
               type="button"
+              disabled={!isIdValid || !isPwValid}
             >
               로그인
             </button>

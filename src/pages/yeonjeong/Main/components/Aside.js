@@ -4,7 +4,7 @@ import './Aside.scss';
 
 class Aside extends Component {
   render() {
-    const { storyUserData, recommendUserData } = this.props;
+    const { storyUsersData, recommendUsersData } = this.props;
     return (
       <aside className="aside">
         <section className="userInfo">
@@ -23,13 +23,13 @@ class Aside extends Component {
             <Link to=""> 모두 보기</Link>
           </div>
           <ul>
-            {storyUserData.map(data => {
+            {storyUsersData.map(userData => {
               return (
-                <li className="userInfo" key={data.id}>
-                  <img alt={data.imgAlt} src={data.img} />
+                <li className="userInfo" key={userData.id}>
+                  <img alt={userData.imgAlt} src={userData.img} />
                   <div className="userInfoDetail">
-                    <span className="userName">{data.userName}</span>
-                    <span className="description">{data.description}</span>
+                    <span className="userName">{userData.userName}</span>
+                    <span className="description">{userData.description}</span>
                   </div>
                 </li>
               );
@@ -42,13 +42,13 @@ class Aside extends Component {
             <Link to="">모두 보기</Link>
           </div>
           <ul>
-            {recommendUserData.map(data => {
+            {recommendUsersData.map(userData => {
               return (
-                <li className="userInfo" key={data.id}>
-                  <img alt={data.imgAlt} src={data.img} />
+                <li className="userInfo" key={userData.id}>
+                  <img alt={userData.imgAlt} src={userData.img} />
                   <div className="userInfoDetail">
-                    <span className="userName">{data.userName}</span>
-                    <span className="description">{data.description}</span>
+                    <span className="userName">{userData.userName}</span>
+                    <span className="description">{userData.description}</span>
                   </div>
                   <button type="button">팔로우</button>
                 </li>

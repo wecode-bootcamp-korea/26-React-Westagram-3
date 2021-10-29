@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './Comment.scss';
+import './Comments.scss';
 
-class Comment extends Component {
+class Comments extends Component {
   render() {
-    const { commentList } = this.props;
+    const { comments } = this.props;
 
-    return commentList.map(comment => {
+    return comments.map(comment => {
       return (
         <li key={comment.id}>
           <b>{comment.userName}</b>
@@ -17,4 +17,4 @@ class Comment extends Component {
   }
 }
 
-export default Comment;
+export default Comments;
