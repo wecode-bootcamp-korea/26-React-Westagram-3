@@ -1,1 +1,46 @@
-@import '../variables.scss'
+@import '../../../styles/variables.scss';
+
+.mainPage {
+  background-color: rgb(250, 250, 250);
+
+  main {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    padding-top: 90px;
+    padding-bottom: 30px;
+    margin: 0 50px 40px 50px;
+  }
+
+  li {
+    color: black;
+    font-size: 15px;
+  }
+}
+
+.userInfo {
+  @include flex-align-center;
+
+  img {
+    width: 40px;
+    height: 40px;
+    border: 1px solid lightgrey;
+    border-radius: 50%;
+  }
+
+  .userInfoDetail {
+    display: inline-block;
+    margin-left: 10px;
+
+    .userName {
+      display: block;
+      font-weight: bold;
+    }
+
+    .description {
+      display: block;
+      color: grey;
+      font-size: 11px;
+    }
+  }
+}
